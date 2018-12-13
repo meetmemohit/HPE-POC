@@ -1,0 +1,15 @@
+<apex:page controller="ParksSOAPRESTCLass" showHeader="false">
+<apex:form >
+<apex:pageBlock >
+<apex:pageBlockSection title="Enter the Country Name" columns="1" >
+   <apex:inputText label="Country Name" value="{!country}"/>
+   <apex:commandButton action="{!Search}" value="Search Parks"/>
+</apex:pageBlockSection>    
+<apex:pageblockSection title="Parks available in the country" rendered="{!showResult}">
+   <apex:pageBlockTable value="{!parks}" var="p" >
+     <apex:column value="{!p}" headerValue="Parks"/>
+   </apex:pageBlockTable>
+   </apex:pageblockSection>
+</apex:pageBlock>
+</apex:form>    
+</apex:page>

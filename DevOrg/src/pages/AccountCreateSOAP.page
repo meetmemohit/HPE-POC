@@ -1,0 +1,10 @@
+<apex:page standardController="Account" extensions="CreateAccUsingSOAP" showHeader="false">
+    <apex:form >
+     <apex:pageBlock >
+       <apex:pageBlockSection title="Enter the Account Name to be created">
+           <apex:inputText value="{!nam}" label="Account Name"/>
+       </apex:pageBlockSection>
+       <apex:commandButton action="{!create}" value="Insert"/>
+     </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Invoice__c</fullName>
+        <externalId>false</externalId>
+        <label>Invoice</label>
+        <referenceTo>Invoice__c</referenceTo>
+        <relationshipLabel>Line Items</relationshipLabel>
+        <relationshipName>Line_Items</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Merchandise__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Merchandise</label>
+        <referenceTo>Merchandise__c</referenceTo>
+        <relationshipLabel>Line Items</relationshipLabel>
+        <relationshipName>Line_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Quantity__c</fullName>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Unit_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>Line Item</label>
+    <nameField>
+        <label>Line Item Number</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Line Items</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Quanlity_Check</fullName>
+        <active>true</active>
+        <description>Quantity should not be more than quantity in merchandise</description>
+        <errorConditionFormula>Quantity__c  &gt; Merchandise__r.Quantity__c</errorConditionFormula>
+        <errorDisplayField>Quantity__c</errorDisplayField>
+        <errorMessage>Quantity cannot be more than that is available in stock.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Quantity</fullName>
+        <active>true</active>
+        <description>Quantity Field should not allow negative values.</description>
+        <errorConditionFormula>Quantity__c   &lt;= 0</errorConditionFormula>
+        <errorDisplayField>Quantity__c</errorDisplayField>
+        <errorMessage>Quantity should be a non negative number and greater than 0.</errorMessage>
+    </validationRules>
+</CustomObject>

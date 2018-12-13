@@ -1,0 +1,39 @@
+<apex:page controller="CRM_SearchAllActivityController" contentType="txt/xml#Test.xls" cache="true">
+ <apex:outputText value="{!xlsHeader}"/>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+ <Styles>
+ <Style ss:ID="s1">
+ <Alignment/>
+ <Borders/>
+ <Font ss:Bold="1"/>
+ <Interior/>
+ <NumberFormat/>
+ <Protection/>
+ </Style>
+ </Styles>
+ <Worksheet ss:Name="Tasks">
+ <Table x:FullColumns="1" x:FullRows="1">
+ <Column ss:Width="170"/>
+ <Row>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Subject</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Related To</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Assigned To</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Activity Date</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >IsArchived</Data></Cell>
+ </Row>
+ <apex:repeat value="{!tsk}" var="tk">
+ <Row>
+ <Cell><Data ss:Type="String">{!tk.Subject}</Data></Cell>
+ <Cell><Data ss:Type="String">{!tk.whatid}</Data></Cell>
+ <Cell><Data ss:Type="String">{!tk.ownerid}</Data></Cell>
+ <Cell><Data ss:Type="Srting">{!tk.ActivityDate}</Data></Cell>
+ <Cell><Data ss:Type="String">{!tk.IsArchived}</Data></Cell>
+ </Row>
+ </apex:repeat>
+ </Table>
+ </Worksheet>
+</Workbook>
+</apex:page>

@@ -1,0 +1,31 @@
+<apex:page controller="SearchAllCont">
+  <apex:form >
+    <apex:pageBlock mode="edit" id="block">
+      <apex:pageBlockSection >
+        This Page will display Activities for Postions
+      </apex:pageBlockSection>
+      <apex:pageBlockSection >
+         <apex:pageBlockSectionItem >
+            <apex:outputLabel for="searchText">Assigned To</apex:outputLabel>
+              <apex:panelGroup >
+                <apex:inputText id="searchText" value="{!searchText}"/>
+                <apex:commandButton value="Search!" action="{!doSearch}" rerender="block" status="status"/>
+              </apex:panelGroup>
+         </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+      <apex:actionStatus id="status" startText="requesting..."/>
+      <apex:pageBlockSection title="Results" id="results" columns="1">
+        <apex:pageBlockTable value="{!results}" var="l" rendered="{!NOT(ISNULL(results))}">
+          <apex:facet name="header">                                        
+                        All Activities                                                                               
+          </apex:facet>
+          <apex:pageBlockTable value="{!l.OpenActivities}" var="a" rendered="{!NOT(ISNULL(results))}">
+             <apex:column value="{!a.WhoId}"/> 
+             <apex:column value="{!a.ActivityDate}"/>
+             <apex:column value="{!a.Status}"/> 
+          </apex:pageBlockTable>
+        </apex:pageBlockTable>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+	
+I am proficient in JavaScript    
+</aura:component>

@@ -1,0 +1,16 @@
+<apex:page controller="StringArrayTest" sidebar="false" showHeader="false">
+ <apex:form >
+   <apex:pageBlock title="Page to Display Element of an Array">
+     <!--    <apex:pageBlockSection >
+       <apex:inputText label="Enter the size of Array" value="{!arrsize}"/>
+         <apex:commandButton action="{!generate}" value="Generate" reRender="one"/> 
+       </apex:pageBlockSection>-->
+       <apex:pageBlockSection id="one">
+      <!--    <apex:repeat value="{!Str}" var="arr">
+           {!arr} ---- {!Str}
+          </apex:repeat> -->
+          Element of Array {!Str}
+       </apex:pageBlockSection>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

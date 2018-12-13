@@ -1,0 +1,23 @@
+<apex:page standardController="Opportunity" docType="html-5.0" recordSetVar="Opportunities" tabStyle="Opportunity" showHeader="false"
+           sidebar="false">
+    
+<apex:form id="formopp" >
+ <apex:pageBlock title="All Opportunities"> 
+  <apex:pageBlockButtons >
+      <apex:commandButton value="Save" action="{!Save}" />
+  </apex:pageBlockButtons>
+  <apex:pageBlockSection >
+      <apex:pageBlockTable value="{!Opportunities}"  var="opp">
+          
+          <apex:column headerValue="Opportunity Name">
+              <apex:inputField value="{!opp.name}" />
+          </apex:column>    
+          <apex:column headerValue="Next Step">
+          	<apex:inputField value="{!opp.NextStep}"/>
+          </apex:column>    
+      </apex:pageBlockTable>
+  </apex:pageBlockSection>
+ </apex:pageBlock>
+    
+</apex:form> 
+</apex:page>

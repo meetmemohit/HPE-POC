@@ -1,0 +1,7 @@
+<aura:component controller="MyContactListController">
+  <aura:attribute name="contact" type="Contact" 
+               default="{ 'sobjectType': 'Contact' }"/>
+  <force:inputField aura:id="ownerid" 
+                 value="{!v.contact.ownerId}"/>
+
+</aura:component>

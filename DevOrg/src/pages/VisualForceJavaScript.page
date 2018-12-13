@@ -1,0 +1,20 @@
+<apex:page controller="VisualForceJavaClass" showHeader="false">
+    
+    <apex:form id="frm">
+        <apex:pageBlock id="pb">
+            <apex:pageBlockSection id="pbs">
+                <apex:inputText value="{!txt1}" label="Input Text" id="inp1" />
+            </apex:pageBlockSection>
+            <apex:commandButton action="{!Process}" value="Process" onclick="getvalue()"/>
+        </apex:pageBlock>
+        <script>
+      			  function getvalue(){
+        		    //alert('Hi');
+                      var txt = document.getElementById('{!$Component.pb.pbs.inp1}').value;
+       			      if (txt == ''){
+                       alert('The field cannot be blank');
+                      }
+                  }
+         </script>
+    </apex:form>
+    </apex:page>

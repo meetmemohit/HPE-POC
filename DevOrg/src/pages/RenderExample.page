@@ -1,0 +1,12 @@
+<apex:page StandardController="Positions__c" tabStyle="Account" sidebar="false" showChat="false" showHeader="false" recordSetVar="pos">
+<apex:form >
+  <b>This section displays all accounts in this organization</b>
+ <apex:pageBlock >
+    <apex:pageBlockTable value="{!pos}" var="p">
+    <apex:Column >
+      <apex:outputField label="Position Title" value="{!p.Name}"/>
+    </apex:Column>
+    </apex:pageBlockTable>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>

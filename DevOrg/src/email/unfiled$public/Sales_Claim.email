@@ -1,0 +1,4 @@
+Hi {!ApprovalRequest.Process_Approver},
+
+Following opportunity is assigned to you for approval.
+{!Opportunity.Name}

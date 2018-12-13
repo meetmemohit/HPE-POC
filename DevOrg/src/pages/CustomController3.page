@@ -1,0 +1,11 @@
+<apex:page Controller="Custcontroller1" tabStyle="Account" showHeader="false" sidebar="False">
+<apex:form >
+ <apex:pageBlock >
+     <center> <apex:commandButton action="{!save}" value="Save"/></center>
+     <apex:pageBlockSection title="Edit Account Section" >
+      <apex:inputField value="{!account.name}"/>
+     </apex:pageBlockSection>
+     <center> <apex:commandButton action="{!save}" value="Save"/></center>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>

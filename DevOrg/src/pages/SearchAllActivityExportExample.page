@@ -1,0 +1,80 @@
+<!--<apex:page controller="CRM_SearchAllActivityController" contentType="txt/xml#TaskAndCalls.xls" cache="true">-->
+<apex:page controller="CRM_SearchAllActivityController" contentType="application/vnd.ms-excel#TestandCalls.xls" action="{!DoSearch}"> 
+<apex:outputText value="{!xlsHeader}"/> 
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+ <Styles>
+ <Style ss:ID="s1">
+ <Alignment/>
+ <Borders/>
+ <Font ss:Bold="1"/>
+ <Interior/>
+ <NumberFormat/>
+ <Protection/>
+ </Style>
+ </Styles>
+ <Worksheet ss:Name="Task And Calls">
+ <Table x:FullColumns="1" x:FullRows="1">
+ <Column ss:Width="200"/>
+ <Column ss:Width="100"/>
+ <Column ss:Width="100"/>
+ <Column ss:Width="75"/>
+ <Column ss:Width="75"/>
+ <Column ss:Width="150"/>
+ <Column ss:Width="75"/>
+ <Column ss:Width="80"/>
+ <Column ss:Width="75"/>
+<Row>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Subject</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Related To</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Person</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Assigned To</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Activity Date</Data></Cell>
+    <Cell ss:StyleID="s1"><Data ss:Type="String" >Comments/Public Notes</Data></Cell>
+ <!--<Cell ss:StyleID="s1"><Data ss:Type="String" >Activity Type</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Sub Type</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Method</Data></Cell>
+ <Cell ss:StyleID="s1"><Data ss:Type="String" >Activity Completed</Data></Cell> -->
+ </Row>
+ <apex:repeat value="{!listTask}" var="t" rendered="{!Showtask}">
+ <Row>
+ <Cell><Data ss:Type="String">{!t.Subject}</Data></Cell>
+ <Cell><Data ss:Type="String">{!t.what.name}</Data></Cell>
+ <Cell><Data ss:Type="String">{!t.who.name}</Data></Cell>
+ <Cell><Data ss:Type="String">{!t.Owner.Name}</Data></Cell>
+ <Cell><Data ss:Type="String">
+     <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+       <apex:param value="{!t.ActivityDate}" /> 
+     </apex:outputText>
+ </Data></Cell>
+ <Cell><Data ss:Type="String">{!t.Description}</Data></Cell>
+<!-- <Cell><Data ss:Type="String">{!t.Type__c}</Data></Cell>
+ <Cell><Data ss:Type="String">{!t.Sub_Type__c}</Data></Cell>
+ <Cell><Data ss:Type="String">{!t.Method__c}</Data></Cell>
+ <Cell><Data ss:Type="String">{!t.Activity_Completed__c}</Data></Cell> -->
+ </Row> 
+</apex:repeat>
+ <apex:repeat value="{!listEvent}" var="e" rendered="{!Showevent}">
+ <Row>
+ <Cell><Data ss:Type="String">{!e.Subject}</Data></Cell>
+ <Cell><Data ss:Type="String">{!e.what.name}</Data></Cell>
+ <Cell><Data ss:Type="String">{!e.who.name}</Data></Cell>
+ <Cell><Data ss:Type="String">{!e.Owner.Name}</Data></Cell>
+ <Cell><Data ss:Type="String">
+     <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+       <apex:param value="{!e.ActivityDate}" /> 
+     </apex:outputText>
+ </Data></Cell>
+ <Cell><Data ss:Type="String">{!e.Description}</Data></Cell>
+<!-- <Cell><Data ss:Type="String">{!e.Type__c}</Data></Cell>
+ <Cell><Data ss:Type="String">{!e.Sub_Type__c}</Data></Cell>
+ <Cell><Data ss:Type="String">{!e.Method__c}</Data></Cell>
+ <Cell><Data ss:Type="String">{!e.Activity_Completed__c}</Data></Cell> -->
+ </Row> 
+ </apex:repeat>
+ </Table>
+ </Worksheet>
+</Workbook>
+</apex:page>

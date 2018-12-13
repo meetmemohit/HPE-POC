@@ -1,0 +1,27 @@
+<apex:page controller="ShowContactsForSelectedAccounts" sidebar="false" showHeader="false" tabStyle="Account">
+<apex:form >
+<apex:pageBlock title="All Account">
+	<apex:pageBlockButtons >
+        <apex:commandButton action="{!ProcessSelected}" value="Process Selected"/>
+    </apex:pageBlockButtons>
+    <apex:pageBlockSection title="Select Account to Process" rendered="{!(showresult)}">
+        <apex:pageBlockTable value="{!wrapacc}" var="a">
+            <apex:column headerValue="Select">
+            	<apex:inputCheckbox value="{!a.sel}"/>
+            </apex:column>
+            <apex:column value="{!a.ac.name}" headerValue="Account Name"/>
+            <apex:column value="{!a.ac.BillingState}" headerValue="Address"/>
+            <apex:column value="{!a.ac.phone}" headerValue="Phone"/>
+        </apex:pageBlockTable>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="Contacts for the Selected Account" rendered="{!(con.size > 0)}" >
+     	<apex:pageBlockTable value="{!con}" var="c">
+            <apex:column value="{!c.Account.Name}" headerValue="Account Name"/>
+           <!-- <apex:column value="{!c.id}" headerValue="Contact ID"/> -->
+            <apex:column value="{!c.name}" headerValue=" Contact Name"/>            
+        </apex:pageBlockTable>
+    </apex:pageBlockSection>
+    
+</apex:pageBlock>
+</apex:form>
+</apex:page>

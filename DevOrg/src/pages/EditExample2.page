@@ -1,0 +1,17 @@
+<apex:page standardController="Account" recordSetVar="accounts" showHeader="false" sidebar="false">
+ <apex:form >
+  <apex:pageBlock title="Account Detail Page">
+  <apex:pageMessages />
+   <apex:pageBlockButtons >
+    <apex:commandButton value="Save" action="{!save}"/>
+   </apex:pageBlockButtons>
+   <apex:pageBlockTable value="{!accounts}" var="m">
+     <apex:column value="{!m.name}"/>
+   <!--  <apex:repeat value="{!m.Contacts}" var="c">
+       <apex:column value="{!c.Name}"/>
+       <apex:column value="{!c.Email}"/>    
+     </apex:repeat> -->
+   </apex:pageBlockTable>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

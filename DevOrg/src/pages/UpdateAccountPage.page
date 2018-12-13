@@ -1,0 +1,10 @@
+<apex:page StandardController="Account">
+<apex:form >
+ <apex:pageBlock title="Hello {!$User.FirstName} {!$User.LastName}">
+   <apex:pageBlockSection columns="1" title="Update your Account Details"/>
+     <apex:inputfield value="{!Account.name}"/> 
+     <apex:inputfield value="{!account.AccountNumber}"/>
+ </apex:pageblock>    
+ <apex:commandButton value="Save Account Details"/>
+</apex:form>
+</apex:page>

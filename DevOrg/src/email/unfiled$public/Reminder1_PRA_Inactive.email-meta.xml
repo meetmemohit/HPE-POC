@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>1st reminder mail to Manager of the Inactive PRA</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Reminder1: PRA Inactive</name>
+    <style>none</style>
+    <subject>1st Reminder: Reassign PRA for the inactive user</subject>
+    <type>text</type>
+</EmailTemplate>

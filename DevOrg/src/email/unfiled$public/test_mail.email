@@ -1,0 +1,8 @@
+<messaging:emailTemplate subject="Relationships assigned to you" recipientType="User" relatedToType="Contact">
+<messaging:plainTextEmailBody >
+<b>Dear {!recipient.Name}</b>
+{!relatedto.name} has been Edited. Open the below link to check.
+   <a href = "{!URLFOR($Page.QuickUpdate)}?id={!relatedto.id}"> 
+   </a>    
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

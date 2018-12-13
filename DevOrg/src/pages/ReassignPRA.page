@@ -1,0 +1,16 @@
+<apex:page standardController="Relationship__c" extensions="ReassignPRAController">
+    <apex:form >
+        <apex:pageBlock id="reassign" title="Reassign PRA">
+            <apex:pageBlockSection >
+                <apex:outputText value="{!$CurrentPage.parameters.urlparm}" id="urlparm" rendered="false"/>
+                <apex:outputText value="{$CurrentPage.parameters.returl}" id="retUrl" rendered="false"/>
+                <apex:inputfield value="{!Relationship__c.OwnerId}" id="OwnerId" rendered="true"  />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!Save}" />
+                <apex:commandButton value="Cancel" action="{!Cancel}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    
+    </apex:form>
+</apex:page>

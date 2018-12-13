@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Line Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Line Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Invoice --></label>
+        <name>Invoice__c</name>
+        <relationshipLabel><!-- Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Merchandise --></label>
+        <name>Merchandise__c</name>
+        <relationshipLabel><!-- Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quantity --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit Price --></label>
+        <name>Unit_Price__c</name>
+    </fields>
+    <layouts>
+        <layout>Line Item Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Quantity cannot be more than that is available in stock. --></errorMessage>
+        <name>Quanlity_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Quantity should be a non negative number and greater than 0. --></errorMessage>
+        <name>Validate_Quantity</name>
+    </validationRules>
+</CustomObjectTranslation>

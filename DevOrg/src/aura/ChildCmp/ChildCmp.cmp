@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="var1" type="String" />
+    <aura:registerEvent name="childEvent" type="c:CmpEvent"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="grandChildEvent" event="c:CmpEvent" action="{!c.handleChildEvent}" includeFacets="true"/>
+   <lightning:button label="Display" aura:id="btnid" onclick="{!c.DisplayEvent}" name="Display Button"/>
+ 	<!--<c:GrandChildComp />-->
+    
+</aura:component>

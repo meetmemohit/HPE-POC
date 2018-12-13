@@ -1,0 +1,19 @@
+<apex:page controller="ActionFunctionController" >
+    <apex:form >
+   
+        <apex:pageBlock id="pb1">
+          <apex:actionFunction name="actfunc" action="{!DisplayMessage}" rerender="pb1, pb2"/>
+         <!--   <apex:commandButton action="{!DisplayMessage}" value="Click" onclick="actfunc()"/> -->
+         <apex:inputtext onclick="actfunc"/>
+         <apex:outputText value="{!txt1}" label="Output Text"/>
+        <apex:outputText value="{!count}" label="Counter" />
+        </apex:pageBlock>
+      <!--  <apex:pageblock id="pb2">
+            <apex:pageBlockSection>
+            	<apex:outputText value="{!txt1}" label="Output Text"/>
+            	<apex:outputText value="{!count}" label="Counter" />
+            </apex:pageBlockSection>
+        </apex:pageblock> -->
+        
+    </apex:form>
+</apex:page>

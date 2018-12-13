@@ -1,0 +1,29 @@
+<apex:page controller="ActionFunctionController" showHeader="false">
+<apex:form >
+  <script>
+    function ValidateLead(){
+      var leadname = document.getElementById('{!$Component.pb1.pbs1.name}').value;
+        alert('Hi-->'+leadname);
+        if(leadname == ''){
+            alert('Lead Name cannot be blank');
+        }else{
+            //invoke controller method using actionfunction
+        	submitlead();
+            alert('Lead has been inserted');
+        }
+    }
+  </script>
+  <!-- ActionFunction for calling InsertLead method from controller class 
+	   difference with ActionSupport is that ActionFunction can be invoked
+       from Java Script. This example is not working but this is how
+       actionfunction is generally used. Use value in name attribute to invoke
+       controller method from Java script-->
+  <apex:actionFunction name="submitlead" action="{!InsertLead}"/>
+  <apex:pageblock id="pb1">
+  <apex:pageBlockSection columns="1" id="pbs1">
+   <apex:inputText value="{!LeadName}" label="Lead Name" id="name"/>
+  </apex:pageBlockSection>
+  <apex:commandButton value="Create Lead" onclick="ValidateLead()"/>
+  </apex:pageblock>
+</apex:form>
+</apex:page>

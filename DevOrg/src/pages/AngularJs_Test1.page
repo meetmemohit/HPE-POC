@@ -1,0 +1,52 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" docType="html-5.0" controller="Angjs_Controller">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+    <link rel="stylesheet" href="https://cs17.salesforce.com/resource/1446785846000/mainCSS"></link>
+    <apex:stylesheet value="{!URLFOR($Resource.assets, '/css/ng-table.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.assets, '/css/shweta.css')}"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <apex:includeScript value="{!URLFOR($Resource.app, 'app.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/angular-ui-router.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/ng-table.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/stick-header.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/ui-bootstrap-tpls-0.14.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/controllers/mainController.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/controllers/otherControllers.js')}"/>
+    <apex:form >
+<html>
+<body>
+
+<div ng-app="myApp" ng-controller="personCtrl">
+
+<button ng-click="toggle()">Show user</button>
+
+<div ng-show="myVar" >
+    First Name: <input type="text" ng-model="firstName"/><br/>
+    Last Name: <input type="text" ng-model="lastName"/><br/>
+    Full Name: {{firstName + " " + lastName}}
+    </div>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('personCtrl', function($scope) {
+    $scope.firstName = "John",
+    $scope.lastName = "Doe"
+    $scope.myVar = {!var};
+    $scope.toggle = function() {
+    $scope.myVar = !$scope.myVar;
+    };
+});
+</script>
+</body>
+</html>
+
+</apex:form>
+</apex:page>

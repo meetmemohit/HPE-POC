@@ -1,0 +1,5 @@
+<apex:page showHeader="false" sidebar="false">
+<apex:form >
+     <apex:image id="theImage" value="{!$Resource.Image}"/>
+</apex:form>
+</apex:page>

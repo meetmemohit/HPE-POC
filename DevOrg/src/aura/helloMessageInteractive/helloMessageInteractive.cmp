@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="message" type="string"/>
+    <aura:attribute name="hide" type="boolean" default="false"/>
+    
+    <p>
+       Hello : {!v.message}
+    </p>
+    
+    <lightning:button label="My name is Mohit" onclick="{!c.displayMessage}" disabled="{!v.hide}"/>
+    <lightning:button label="My name is Ashwini" onclick="{!c.displayMessage}"/>
+        
+</aura:component>

@@ -1,0 +1,13 @@
+<apex:page controller="ShowContacts" tabStyle="Account" >
+ <apex:form >
+   <apex:SectionHeader title="Contact Details" />
+ <!-- <Apex:commandButton value="Cancel" action="{!Cancel}"/> -->
+   <apex:repeat value="{!conlist}" var="c">
+      <apex:pageBlockSection columns="1">
+        <apex:outputField label="First Name" value="{!c.FirstName}"/>
+        <apex:outputField label="Last Name" value="{!c.LastName}"/>
+      </apex:pageBlockSection>>
+   </apex:repeat>
+ <!-- <Apex:commandButton value="Cancel" action="{!Cancel}"/> -->
+ </apex:form>
+</apex:page>

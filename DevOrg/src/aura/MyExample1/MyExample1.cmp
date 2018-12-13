@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="username" type="string" default="Mohit" access="global"/>	
+    <h1>Welcome to Lightning !!!!!</h1>
+    <h1> Username:{!v.username}</h1>
+</aura:component>

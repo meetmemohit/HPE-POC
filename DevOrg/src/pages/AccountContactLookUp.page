@@ -1,0 +1,76 @@
+<apex:page standardController="Account" extensions="AccountConLookUpCont" showHeader="false" action="{!getAccountDetails}">
+<apex:form >
+    <script type="text/javascript" src="js/Integration.js"></script>
+    <script type="text/javascript">
+   var previousOnload = window.onload;        
+   window.onload = function() 
+   {
+    
+    if (previousOnload) { 
+           previousOnload();
+       }
+
+        init();
+       
+   }
+   
+   function init() 
+   {
+       /*
+            var form = document.createElement('form');
+            form.method = 'POST';
+        
+            form.action = document.getElementById("txtURL").value;
+            
+                var elemCIN = document.createElement('input');
+                elemCIN.name = 'hiddenCIN';
+                elemCIN.value = document.getElementById("txtCIN").value;
+                elemCIN.type = 'hidden';
+                form.appendChild(elemCIN);
+       
+          
+            var elemAcc = document.createElement("input");
+            elemAcc.name = "hiddenAccount";
+            elemAcc.value = document.getElementById("txtAccNo").value;
+            elemAcc.type = "hidden";
+            form.appendChild(elemAcc);
+
+            
+            var elemAccType = document.createElement("input");
+            elemAccType.name = "hiddenAccountType";
+            elemAccType.value = document.getElementById("txtAccounttype").value;
+            elemAccType.type = "hidden";
+            form.appendChild(elemAccType);
+
+			
+       
+                
+                var elemTIN = document.createElement("input");
+            	elemTIN.name = "hiddenTIN";
+            	elemTIN.value = document.getElementById("txtTIN").value;
+            	elemTIN.type = "hidden";
+            	form.appendChild(elemTIN);			    		
+       
+      
+       		var elemAppType = document.createElement("input");
+            elemAppType.name = "hiddenApplication";
+            elemAppType.value = "AdvisorDesktop";
+            elemAppType.type = "hidden";
+            form.appendChild(elemAppType);
+	
+            document.body.appendChild(form);*/
+            
+            form.submit(); 
+
+   }
+</script>
+    
+    <apex:pageBlock >
+     <apex:pageBlockSection >
+      <apex:inputField Value="{!con.AccountId}" id="input"/>
+      <apex:inputText Value="{!contacts}" id="listsize" rendered="true"/>
+      <apex:commandButton action="{!SaveRecord}" value="Process" />
+     </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

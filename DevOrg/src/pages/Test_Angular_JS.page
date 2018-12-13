@@ -1,0 +1,510 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" docType="html-5.0" controller="Test_Angular">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+    <link rel="stylesheet" href="https://cs17.salesforce.com/resource/1446785846000/mainCSS"></link>
+    <apex:stylesheet value="{!URLFOR($Resource.assets, '/css/ng-table.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.assets, '/css/shweta.css')}"/> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <apex:includeScript value="{!URLFOR($Resource.app, 'app.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/angular-ui-router.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/ng-table.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/stick-header.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/ui-bootstrap-tpls-0.14.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/controllers/mainController.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/controllers/otherControllers.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.app, '/modalController.js')}"/>
+    
+<html ng-app="stApp" xmlns:ng="http://angularjs.org" lang="en">>
+   <head>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js"/>
+   <script type="text/javascript">
+         var app = angular.module('stApp', []);
+         app.controller('maincontroller', function($scope) {
+         $scope.showVar = false;
+         $scope.showProfile = function() {
+         alert("I am here");
+         $scope.showVar = !$scope.showVar;
+      
+      };
+    });
+   </script>
+    </head>   
+
+   <body data-ng-controller="mainController">
+    <header class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-target="#navbar-collapse-1" data-toggle="collapse" type="button">
+        <span class="sr-only">Toggle navigation</span> 
+        <span class="icon-bar"></span> 
+        <span class="icon-bar"></span> 
+        <span class="icon-bar"></span>
+        </button>
+      </div><a class="navbar-brand" href="#"></a>
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li>
+            <a href="#" style="font-weight: 500">
+            <div class="circle glyphicon glyphicon-menu-hamburger"></div>
+            <h6>
+              Menu
+            </h6></a>
+          </li>
+          <li>
+            <div class="form-group has-feedback">
+              <input class="form-control" placeholder="Search Portal" type="text"></input> 
+              <i class="glyphicon glyphicon-search form-control-feedback"></i>
+            </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" style="color: #ED8B3B">Sign Off</a>
+          </li>
+          <li>
+            <a href="#" style="font-weight: 500">
+            <h6>
+              My Settings
+            </h6>
+            <div class="circle glyphicon glyphicon-user"></div></a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <nav style="z-index: 1">
+      <div class="subnav">
+        <div class="container">
+          <ul class="suntrust-app-nav-list">
+            <li>
+              <a href="">Dashboard <span class="suntrust-subtext">Launch your apps</span></a>
+            </li>
+            <li>
+              <a href=""><span class="suntrust-messages-count">2</span>Messages <span class="suntrust-subtext">Alerts &amp; announcements</span></a>
+            </li>
+            <li>
+              <a href="">Resources <span class="suntrust-subtext">Traning &amp; tools</span></a>
+            </li>
+            <li class="suntrust-active">
+              <a>Admin <span class="suntrust-subtext">Manage Users</span></a>
+            </li>
+            <li>
+              <a href="">Support <span class="suntrust-subtext">FAQ &amp; contact</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container" id="main">
+      <div class="page">
+        <div class="main-headingArea">
+          <div class="col-md-8 col-xs-8 pull-left">
+            <h1 class="main-heading">
+              Manage Profile <span>for John Abel</span>
+            </h1>
+          </div>
+          <div class="col-md-4 col-xs-4 pull-right close-btnArea">
+            Close<span class="btn btn-blue btn-close">X</span>
+          </div>
+        </div><!-- Main Heading Area end -->
+        <!-- manage profile content starts -->
+        <div class="manageprofile-area">
+          <!-- Sub Navigation Area starts -->
+          <nav class="navbar inner-sub-nav" role="navigation">
+            <div class="col-md-6 col-xs-6 pull-left">
+              <ul class="nav navbar-nav navbar-left">
+                <li>
+                  <a href="#">Profile</a>
+                </li>
+                <li>
+                  <a href="#">Contact</a>
+                </li>
+                <li>
+                  <a href="#">Applications</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6 col-xs-6 pull-right sub-nav-Btn">
+              <button class="btn btn-white pull-right" type="button">
+                 <span class="icon-lock"></span>Reset Password
+              </button> 
+              <button class="btn btn-white pull-right" type="button">Remove User</button>
+            </div>
+          </nav><!-- Sub Navigation Area end -->
+          <!-- Manage Profile Sections area starts -->
+          <div class="container-fluid manage-profile">
+            <!-- Profile Section Starts -->
+            <div class="section">
+              <div>
+                <div class="section-heading">
+                  <div class="col-md-6 col-xs-6 pull-left section-heading-inner">
+                    <h3>
+                      Profile
+                    </h3>
+                  </div>
+                  <div class="col-md-6 col-xs-6 pull-right section-heading-inner" ng-controller="dashboardController" >
+                    <button class="btn btn-blue" type="button" ng-click="showProfile()">Edit Profile</button>
+                  </div>
+                </div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-md-3 col-xs-3 text-right">Name</label>
+                    <div class="col-md-9 col-xs-9 text-left">
+                        {!con.Name}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 col-xs-3 text-right">User ID</label>
+                    <div class="col-md-9 col-xs-9 text-left">
+                      {!con.User_Id__c}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 col-xs-3 text-right">Role</label>
+                    <div class="col-md-9 col-xs-9 text-left">
+                      {!con.Title}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 col-xs-3 text-right">Status</label>
+                    <div class="col-md-9 col-xs-9 text-left">
+                      {!con.User_Status__c}
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="clearfix"></div>
+              <div class="containerOfPopup">
+                <div class="custom-popup col-md-12">
+                  <div class="popup-headingArea">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-6 pull-left">
+                        <h4>
+                          Profile
+                        </h4>
+                      </div><!-- <div class="col-md-6 col-xs-6 pull-right">
+                                    <div class="pull-right">
+                                        <button type="button" class="btn btn-blue" ng-click="obj.editProfile = false">Save</button>
+                                    </div>
+                                    <div class="close-circlebtnArea pull-right" ng-click="obj.editProfile = false">
+                                        <span class="btn btn-blue btn-circleclose">X</span> Cancel
+                                    </div>
+                                </div> -->
+                    </div>
+                  </div>
+                  <div class="popup-content">
+                    <div class="popup-content-heading">
+                      <h5>
+                        Name
+                      </h5>
+                    </div>
+                    <form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left">
+                      <div class="form-group">
+                        <span class="small-text">Optional</span>
+                        <div class="custom-select">
+                          <select class="form-control custom-dropdown">
+                            <option>
+                              Title
+                            </option>
+                            <option>
+                              Mr.
+                            </option>
+                            <option>
+                              Ms.
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="small-text">First Name</label>
+                        <div class="">
+                          <input class="form-control" type="text" value="{!con.FirstName}"></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <span class="small-text">Optional</span>
+                        <div class="">
+                          <input class="form-control placeholder-field" placeholder="Middle Name" type="text"></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="small-text">Last Name</label>
+                        <div class="">
+                          <input class="form-control" type="text" value="{!con.LastName}"></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <span class="small-text">Optional</span>
+                        <div class="custom-select">
+                          <select class="form-control custom-dropdown">
+                            <option>
+                              Surffix
+                            </option>
+                            <option>
+                              Option 1
+                            </option>
+                            <option>
+                              Option 2
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="popup-content">
+                    <div class="popup-content-heading">
+                      <h5>
+                        User
+                      </h5>
+                    </div>
+                    <form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left">
+                      <div class="form-group">
+                        <label class="small-text">User ID</label>
+                        <div class="">
+                          <input class="form-control" type="text" value="{!con.User_ID__c}"></input>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="small-text">Role</label>
+                        <div class="">
+                          <select class="form-control custom-dropdown">
+                            <option>
+                              Application User
+                            </option>
+                            <option>
+                              Option 1
+                            </option>
+                            <option>
+                              Option 2
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="popup-footer">
+                    <div class="pull-right">
+                      <button class="btn btn-blue" type="button">Save</button>
+                    </div>
+                    <div class="close-circlebtnArea pull-right">
+                      <span class="btn-circleclose"></span> Cancel
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- Profile Section Ends -->
+            <div class="clearfix"></div><!-- Contact Section Starts -->
+            <div class="section">
+              <div>
+                <div class="section-heading">
+                  <div class="col-md-6 col-xs-6 pull-left section-heading-inner">
+                    <h3>
+                      Contact
+                    </h3>
+                  </div>
+                  <div class="col-md-6 pull-right section-heading-inner">
+                    <button class="btn btn-blue" type="button">Edit Contact</button>
+                  </div>
+                </div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-md-3 col-xs-3 text-right">EmaiL Address</label>
+                    <div class="col-md-9 col-xs-9 text-left">
+                      {!con.Email}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 col-xs-3 text-right">Phone Numbers(s)</label>
+                    <div class="col-md-9 col-xs-9 text-left">
+                      Primary Phone
+                      <div>
+                      {!con.Phone}
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="clearfix"></div>
+              <div class="containerOfPopup">
+                <div class="custom-popup col-md-12">
+                  <div class="popup-headingArea">
+                    <div class="row">
+                      <div class="col-md-6 col-xs-6 pull-left">
+                        <h4>
+                          Contact
+                        </h4>
+                      </div><!--    <div class="col-md-6 col-xs-6 pull-right">
+                                   <div class="pull-right">
+                                       <button type="button" class="btn btn-blue" ng-click="obj.editContact = false">Save</button>
+                                   </div>
+                                   <div class="close-circlebtnArea pull-right" ng-click="obj.editContact = false">
+                                       <span class="btn btn-blue btn-circleclose">X</span> Cancel
+                                   </div>
+                               </div> -->
+                    </div>
+                  </div>
+                  <div class="popup-content">
+                    <div class="popup-content-heading">
+                      <h5>
+                        Email
+                      </h5>
+                    </div>
+                    <form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left">
+                      <div class="form-group">
+                        <label class="small-text">Email Address</label>
+                        <div class="">
+                          <input class="form-control" type="text"></input>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="popup-content">
+                    <div class="popup-content-heading">
+                      <h5>
+                        Phone Numbers
+                      </h5>
+                    </div>
+                    <form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left">
+                      <div class="form-group">
+                        <label class="small-text">Phone Type</label>
+                        <div class="">
+                          <select class="form-control custom-dropdown">
+                            <option>
+                              Office
+                            </option>
+                            <option>
+                              Option 1
+                            </option>
+                            <option>
+                              Option 2
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="small-text">Phone Country</label>
+                        <div class="">
+                          <select class="form-control custom-dropdown">
+                            <option>
+                              United State (+1)
+                            </option>
+                            <option>
+                              Option 1
+                            </option>
+                            <option>
+                              Option 2
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="small-text">Phone Number</label>
+                        <div class="">
+                          <input class="form-control" type="text"></input>
+                        </div>
+                      </div>
+                      <div class="form-group add-anthrNo">
+                        <a href="#">Add another phone number</a>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="popup-footer">
+                    <div class="pull-right">
+                      <button class="btn btn-blue" type="button">Save</button>
+                    </div>
+                    <div class="close-circlebtnArea pull-right">
+                      <span class="btn-circleclose"></span> Cancel
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- Contact Section Ends -->
+            <div class="clearfix"></div><!-- Application Section Starts -->
+            <div class="section">
+              <div>
+                <div class="section-heading">
+                  <div class="col-md-6 pull-left section-heading-inner">
+                    <h3>
+                      Applications
+                    </h3>
+                  </div>
+                  <div class="col-md-6 col-xs-6 pull-right section-heading-inner">
+                    <button class="btn btn-blue" type="button">Edit Applications</button>
+                  </div>
+                </div>
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">
+                      <div class="inner-content selected">
+                        <span class="icon-tick"></span> <label class="">SunView Treasury Manager</label> <span>Added Mar 16, 2015 by John xsith</span>
+                      </div><button class="btn btn-white ng-hide" type="button">Remove</button>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">
+                      <div class="inner-content selected">
+                        <span class="icon-tick"></span> <label class="">SunView Treasury Manager</label> <span>Added Mar 16, 2015 by John xsith</span>
+                      </div><button class="btn btn-white ng-hide" type="button">Remove</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="clearfix"></div><!-- <div class="containerOfPopup" ng-if="obj.editApplication">
+                <div class="custom-popup col-md-12">
+                    <div class="popup-headingArea">
+                        <div class="row">
+                            <div class="col-md-6  col-xs-6 pull-left">
+                                <h4>Application</h4>
+                            </div>
+                            <div class="col-md-6 col-xs-6 pull-right">
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-blue" ng-click="obj.editApplication = false">Save</button>
+                                </div>
+                                <div class="close-circlebtnArea pull-right" ng-click="obj.editApplication = false">
+                                    <span class="btn btn-blue btn-circleclose">X</span> Cancel
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-content">
+                        <div class="steps">
+                            <ul class="list-unstyled list-inline">
+                                <li>
+                                    <a class="step-text">Select Applications</a>
+                                </li>
+                                <li>
+                                    <a class="step-text">Processiong</a>
+                                </li>
+                                <li>
+                                    <a class="step-text">Cofirmation</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="popup-footer">
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-blue" ng-click="obj.editApplication = false">Save</button>
+                        </div>
+                        <div class="close-circlebtnArea pull-right" ng-click="obj.editApplication = false">
+                            <span class="btn btn-blue btn-circleclose">X</span> Cancel
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            </div><!-- Application Section Ends -->
+          </div><!-- Manage Profile Sections area ends -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+</apex:page>

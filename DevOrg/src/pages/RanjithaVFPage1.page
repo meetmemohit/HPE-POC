@@ -1,0 +1,23 @@
+<apex:page standardController="Job_Application__c" showHeader="false">
+<apex:form >
+<apex:pageBlock title="Selective Details Of Account Record" >
+<apex:pageBlockButtons >
+ <apex:commandButton value="Save" action="{!Save}"/>    
+</apex:pageBlockButtons>
+
+    <apex:pageBlockSection >
+     <apex:inputField value="{!Job_Application__c.Name}"/>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+  <apex:pageBlock title="Contacts for that Accounts">      
+     <apex:pageBlockTable value="{!Job_Application__c.Reviews__r}" var="con">
+         <apex:column value="{!con.Name}"/>
+     </apex:pageBlockTable>
+     
+
+    </apex:pageBlock>
+    
+</apex:form>    
+    
+    
+</apex:page>

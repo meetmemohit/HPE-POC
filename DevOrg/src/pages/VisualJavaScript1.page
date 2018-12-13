@@ -1,0 +1,20 @@
+<apex:page id="pg" controller="VisualJavaScript1" showHeader="false">
+   <apex:form id="form" >	
+       <script>
+       function Process(){
+       var txt = document.getElementById('{!$Component.pb.pbs.inp1}').value;
+       if(txt == ''){
+           alert("Field cannot be blank");
+       }
+     }
+    </script>
+    <apex:pageBlock id="pb" title="Java Script Function">
+        <apex:pageBlockSection columns="2" id="pbs">
+            <apex:inputText value="{!txt1}" label="Input Text" id="inp1"/>
+        </apex:pageBlockSection>
+        <apex:commandButton id="btn" onclick="Process()" value="Process" action="{!Processed}" />
+        <apex:actionFunction name="Processed" action="{!Processed}" reRender="pbs" status="mystatus" />
+    </apex:pageBlock>
+       <apex:actionStatus id="mystatus" stoptext="Processed.." startText="Starting......" />
+  </apex:form>
+</apex:page>

@@ -1,0 +1,233 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" docType="html-5.0" controller="AngularJSDemoController_shiyas">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"></link>
+    <link rel="stylesheet" href="https://cs17.salesforce.com/resource/1446785846000/mainCSS"></link>
+    <apex:stylesheet value="{!URLFOR($Resource.assets, '/css/ng-table.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.assets, '/css/shweta.css')}"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <apex:includeScript value="{!URLFOR($Resource.app, 'app.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/angular-ui-router.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/ng-table.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/stick-header.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/js/ui-bootstrap-tpls-0.14.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/controllers/mainController.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.app, '/controllers/otherControllers.js')}"/>
+    <apex:form >
+<html ng-app="stApp">
+   <body ng-controller="mainController">
+    <header class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <a class="navbar-brand" href="#">
+           <apex:image url="{!URLFOR($Resource.assets,'/img/SunTrust-logo.png')}"/>
+        </a>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a href="#" style="font-weight: 500">
+                        <div class="circle glyphicon glyphicon-menu-hamburger"></div>
+                        <h6>Menu</h6>
+                    </a>
+                </li>
+                <li>
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="Search Portal" />
+                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color: #ED8B3B">Sign Off</a></li>
+                <li>
+                    <a href="#" style="font-weight: 500">
+                        <h6>My Settings</h6>
+                        <div class="circle glyphicon glyphicon-user"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <nav style="z-index: 1">
+        <div class="subnav">
+            <div class="container">
+                <ul class="suntrust-app-nav-list">
+                    <li>
+                        <a href="">
+                            Dashboard <span class="suntrust-subtext">Launch your apps</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="suntrust-messages-count">2</span>Messages
+                            <span class="suntrust-subtext">Alerts &amp; announcements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Resources
+                            <span class="suntrust-subtext">Traning &amp; tools</span>
+                        </a>
+                    </li>
+                    <li class="suntrust-active">
+                        <a ui-sref="admin">
+                            Admin
+                            <span class="suntrust-subtext">Manage Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Support
+                            <span class="suntrust-subtext">FAQ &amp; contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div class="container" id="main">
+       <div class="page">
+        <nav class="navbar" role="navigation" id="list">
+          <div>
+            <ul class="nav navbar-nav navbar-left">
+            <li>
+                <a href="">
+                    <h6>Manage Users</h6>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <h6>Applications</h6>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <h6>Reports</h6>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid" style="padding-bottom: 25px">
+    <div class="col-md-6 pull-left">
+        <label style="font-size: 25px;font-weight: 200;color: #828080;">Users</label>
+    </div>
+    <div class="col-md-6 pull-right">
+        <button class="btn newuser-btn" type="button">
+            <b class="weight-100">+</b>
+            New User
+        </button>
+        <i class="glyphicon glyphicon-search search-input-icon"></i>
+        <input autofocus="" class="form-control" data-ng-model="search.$" placeholder="Search for User" style="float: right;width: 200px;border-radius: 3px;font-weight: 200;" value="{!searchText}" onchange="doSearchTxt"  ></input>
+        
+        <apex:actionFunction name="doSearchTxt" reRender="acc_list_table"  action="{!doSearch}" />
+    </div>
+</div>
+<div class="container-fluid totals">
+    <div class="col-md-6 pull-left">
+        <h5>
+            Total <b>{!lstacc.size}</b>
+        </h5>
+    </div>
+    <div class="col-md-6 pull-right">
+        <div aria-label="..." class="btn-group" role="group">
+            <button class="btn active-btn" style="color:#EF7621; border: 1px solid #EF7621 !important;z-index: 1" type="button">
+                Current
+            </button>
+            <button class="btn inactive-btn" style="border: 1px solid #B4B4B4;" type="button">Archived</button>
+        </div>
+        <button class="btn filter-btn" type="button">
+            <i class="glyphicon glyphicon-filter"></i>
+            Filter
+        </button>
+    </div>
+</div>
+<div class="row">  <!--  LINA TABLE STARTS HERE -->
+    <div class="col-md-12">
+        <div id="scrollable-area">
+            <table class="table table-condensed table-bordered table-striped" data-ng-table="demo.tableParams">
+            <th data-ng-repeat="user in users">
+                    <td data-sortable="'lastName'" data-title="'Last Name'">
+                        Last Name
+                    </td>
+                    <td data-sortable="'firstName'" data-title="'First Name'">
+                        First Name
+                    </td>
+                    <td data-sortable="'userID'" data-title="'User ID'">
+                        User ID
+                    </td>
+                    <td data-sortable="'role'" data-title="'Role'">
+                        Role
+                    </td>
+                    <td >
+                        &nbsp;
+                    </td>
+                    <td >
+                        &nbsp;
+                    </td>
+            </th>
+            <apex:repeat var="acc" value="{!lstacc}" id="acc_list_table">
+                <tr data-ng-repeat="user in users">
+                    <td data-sortable="'lastName'" data-title="'Last Name'">
+                        {!acc.LastName}
+                    </td>
+                    <td data-sortable="'firstName'" data-title="'First Name'">
+                        {!acc.FirstName}
+                    </td>
+               <!--     <td data-sortable="'userID'" data-title="'User ID'">
+                        {!acc.User_ID__c}
+                    </td> -->
+                    <td data-sortable="'role'" data-title="'Role'">
+                        {!acc.title}
+                    </td>
+                    <td data-title="' '">
+                        <div class="btn-group" style="border: 1px solid #B4B4B4;border-radius: 5px;">
+                            <div class="btn-group">
+                                <button class="btn transparent dropdown-toggle" data-toggle="dropdown" type="button"><i class="glyphicon glyphicon-cog" style="font-size: 18px"></i> <i class="glyphicon glyphicon-chevron-down" style="top: -2px;"></i> <span class="sr-only">Toggle Dropdown</span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a ui-sref="dashboard">Manage Profile</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">Manage Applications</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">Reset Password</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">Deactivate User</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </apex:repeat>
+
+            </table>
+        </div>
+    </div>
+</div>  <!--  LINA TABLE ENDS HERE -->
+
+</div>
+    </div>    
+   </body>
+</html>
+</apex:form>
+</apex:page>

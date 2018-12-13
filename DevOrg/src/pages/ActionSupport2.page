@@ -1,0 +1,11 @@
+<apex:page controller="actionSupportController1" showHeader="false">
+<apex:form >    
+    <apex:outputpanel id="counter">
+          <!--  <apex:outputText value="Click Me!: {!count}"/> -->
+            <apex:commandButton value="Click Me!: {!count}"/>
+            <apex:actionSupport event="onclick"
+                                action="{!incrementCounter}"
+                                rerender="counter"/>
+        </apex:outputpanel>
+</apex:form>
+</apex:page>

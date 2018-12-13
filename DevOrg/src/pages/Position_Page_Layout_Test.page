@@ -1,0 +1,5 @@
+<apex:page standardController="Position__c" >
+      <apex:pageBlock title="External Account" mode="edit">
+         <apex:relatedList list="Position_Child__c"/>
+        </apex:pageBlock>
+</apex:page>

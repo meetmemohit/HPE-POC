@@ -1,0 +1,13 @@
+<apex:page standardController="Account">
+   Hello {!$User.FirstName} {!$User.LastName}
+ <!-- <p>Hello {!Account.Name}</p>
+  <apex:detail /> -->
+ <apex:pageBlock Title="Personal Information Section">
+   <p>This section contains User's personal information </p>
+    <apex:detail />
+ </apex:pageBlock>
+ <Apex:pageBlock Title="Additional Information Section">
+   <p>This section contains user's additional information</p>
+ </Apex:pageBlock>
+
+ </apex:page>

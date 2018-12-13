@@ -1,0 +1,4 @@
+<aura:component >
+	
+   <p>Welcome to Lightning!!!!</p>
+</aura:component>

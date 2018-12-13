@@ -1,0 +1,10 @@
+<apex:page standardController="Account">
+<apex:form >
+<apex:pageBlock title="Hello {!$User.FirstName}!">
+You are viewing the phone number of {!account.Name}. <p/>
+Change Phone Number: <p/>
+<apex:inputText value="{!account.Phone}"/> <p/>
+<apex:commandButton action="{!save}" value="Save New Phone Number" alt="Command Button" dir="LTR"/>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

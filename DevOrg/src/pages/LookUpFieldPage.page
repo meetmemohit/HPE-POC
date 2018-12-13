@@ -1,0 +1,9 @@
+<apex:page controller="LookUpFieldController" showHeader="false">
+<apex:form >
+  <apex:pageBlock >
+    <apex:pageBlockSection >
+      <apex:inputField value="{!opp.AccountId}"/>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:form>    
+</apex:page>

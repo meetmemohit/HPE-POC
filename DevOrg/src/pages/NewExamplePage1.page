@@ -1,0 +1,18 @@
+<apex:page standardController="account" extensions="WrapperDemoClass">
+  <apex:form >
+    <apex:pageblock >
+      <apex:pageblockTable value="{!wrapperObj}" var="Rec">
+         <apex:column >
+         <apex:inputField value="{!Rec.accObj.name}" style="width:195px"/>
+         </apex:column>
+         <apex:column >
+         <apex:inputField value="{!Rec.accObj.id}" style="width:195px"/>
+         </apex:column>
+         <apex:column >
+         
+            <apex:inputcheckbox value="{!Rec.checkBox}"/>
+         </apex:column>
+      </apex:pageblockTable> 
+    </apex:pageblock>
+    </apex:form>
+</apex:page>

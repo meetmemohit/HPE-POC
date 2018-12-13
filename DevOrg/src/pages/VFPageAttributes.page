@@ -1,0 +1,8 @@
+<apex:page standardController="Account" showHeader="false" >
+<apex:form >
+<apex:panelGrid columns="2" >
+  <apex:outputLabel value="{!Account.name}"/>
+  <apex:inputSecret value="{!Account.Phone}"/>
+</apex:panelGrid>
+</apex:form>
+</apex:page>

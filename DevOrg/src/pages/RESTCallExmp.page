@@ -1,0 +1,17 @@
+<apex:page controller="RESTCallExmp" sidebar="false" showHeader="false">
+<apex:form >
+ <apex:pageblock title="Mathematical Operations">
+     <apex:pageMessages />
+    <apex:pageBlockSection title="Enter the Two Numbers" columns="1">
+        <apex:inputText value="{!num1}" label="Number 1"/>
+        <apex:inputText value="{!num2}" label="Number 2"/>
+        <apex:inputText value="{!operation}" label="Enter the operation you want to perform"/>
+        <apex:commandButton action="{!Calculate}" value="Calculate" />
+        
+    </apex:pageBlockSection>
+    <apex:pageBlockSection title="{!detail}">
+        <apex:inputText value="{!num3}" label="Result"/>
+    </apex:pageBlockSection>
+ </apex:pageblock>
+</apex:form>    
+</apex:page>

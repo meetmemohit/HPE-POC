@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentName>force:detailPanel</componentName>
+        </componentInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>createQuickActionName</name>
+                <value>NewCase</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>lookupFieldName</name>
+                <value>Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>titleFieldName</name>
+                <value>Account Detail</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>updateQuickActionName</name>
+                <value>Case._LightningUpdateCase</value>
+            </componentInstanceProperties>
+            <componentName>console:relatedRecord</componentName>
+        </componentInstances>
+        <name>rightsidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>relatedListComponentOverride</name>
+                <value>NONE</value>
+            </componentInstanceProperties>
+            <componentName>force:relatedListContainer</componentName>
+        </componentInstances>
+        <name>leftsidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Case Record Page</masterLabel>
+    <pageTemplate>flexipage:recordHomeThreeColTemplateDesktop</pageTemplate>
+    <sobjectType>Case</sobjectType>
+    <type>RecordPage</type>
+</FlexiPage>

@@ -1,0 +1,15 @@
+<apex:page controller="AJAXSupportClass" showHeader="false">
+	    <apex:form >
+            <apex:pageblock >
+	        <apex:outputpanel id="counter">
+	            <apex:outputText value="Click Me!: {!value}"/>
+	            <apex:actionSupport event="onclick"
+	                         	       action="{!increment}"
+	                                rerender="counter" status="counterStatus"/>
+	        </apex:outputpanel>
+	  <!--      <apex:actionStatus id="counterStatus"
+	                           startText=" (incrementing...)"
+	                           stopText=" (done)"/> -->
+                </apex:pageblock>
+	    </apex:form>
+	</apex:page>

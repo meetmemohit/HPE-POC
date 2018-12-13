@@ -1,0 +1,49 @@
+<apex:page controller="DateController" docType="html-5.0">
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#datepicker").datepicker({ beforeShowDay: allowedDates });
+        });
+
+    var currentYear = new Date().getFullYear();
+
+        var _allowedDates = [
+    new Date(currentYear, 2, 31).getTime(),
+    new Date(currentYear, 5, 30).getTime(),
+    new Date(currentYear, 8, 30).getTime(),
+    new Date(currentYear, 11, 31).getTime(),
+];
+
+function allowedDates(date) {
+    date = date.getTime();
+
+    for (i in _allowedDates)
+        if (date == _allowedDates[i])
+            return [true, ""];
+
+    return [false, ""];
+}
+
+
+    </script>
+
+</head>
+
+<apex:form >
+  <apex:pageBlock >
+
+  <apex:pageblockSection >
+       <!--  <apex:inputText value="{!d_date_str}" id="datepicker" styleClass="JQueryDate" /> -->
+         <apex:input value="{!d_date_str}" id="datepicker" styleClass="JQueryDate" type="date" />
+
+  </apex:pageblockSection>
+  </apex:pageBlock>
+
+ 
+  </apex:form>
+
+</apex:page>

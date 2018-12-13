@@ -1,0 +1,9 @@
+<apex:page showHeader="false" sidebar="false">
+ <apex:form >
+   <apex:pageBlock title="Logged on User Information">
+      <apex:pageBlockSection >
+         Logged in User's First Name is {!$User.FirstName}
+      </apex:pageBlockSection>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

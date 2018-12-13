@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Commission_Percentage__c</fullName>
+        <externalId>false</externalId>
+        <label>Commission Percentage</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <label>Commission Percentage</label>
+    <visibility>Public</visibility>
+</CustomObject>

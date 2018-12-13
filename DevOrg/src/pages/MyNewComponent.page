@@ -1,0 +1,6 @@
+<apex:page standardController="Account" >
+  <!-- Begin Default Content REMOVE THIS -->
+ 
+  <c:MyNewComponent />
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

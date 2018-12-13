@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>CaseNumber</field>
+        <field>Owner</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <approvalActions>
+            <action>
+                <name>Case_Approved</name>
+                <type>Alert</type>
+            </action>
+        </approvalActions>
+        <assignedApprover>
+            <approver>
+                <name>meetmemohit@gmail.com</name>
+                <type>user</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <label>Case Escalation</label>
+        <name>Case_Escalation</name>
+    </approvalStep>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <label>Case Escalation</label>
+    <nextAutomatedApprover>
+        <useApproverFieldOfRecordOwner>true</useApproverFieldOfRecordOwner>
+        <userHierarchyField>Manager</userHierarchyField>
+    </nextAutomatedApprover>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>false</showApprovalHistory>
+</ApprovalProcess>

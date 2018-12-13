@@ -1,0 +1,15 @@
+<apex:page controller="CRM_AddOpportunityTeamMemberController">
+<apex:includeScript value="/support/console/20.0/integration.js"/>
+<script type="text/javascript">
+
+    function setTabTitle() {
+        sforce.console.setTabTitle('Add Opportunity Team Member');        
+    }
+    if(window.addEventListener) {
+        window.addEventListener('load', setTabTitle, false);
+    } else if(window.attachEvent) {
+        window.attachEvent('onload', setTabTitle);
+    }            
+
+</script>
+</apex:page>

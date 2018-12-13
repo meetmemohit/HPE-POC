@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="var1" type="String" />
+   <!-- <aura:handler name="childEvent" action="{!c.fireEvent}" event="c:CmpEvent" />-->
+   <!-- <c:ChildCmp var1="{!v.var1}" /> Data Binding -->
+  <!--  <c:ChildCmp childEvent="{!c.fireEvent}"/>-->
+    <!--<c:ChildCmp/>-->
+    
+    <c:ChildCmp>
+        <c:GrandChildComp />
+    </c:ChildCmp>
+    Message from Child Component :{!v.var1}
+</aura:component>

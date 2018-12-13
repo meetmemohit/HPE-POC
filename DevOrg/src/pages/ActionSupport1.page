@@ -1,0 +1,22 @@
+<apex:page controller="actionSupportController1" showHeader="false">
+    <apex:form >
+        <apex:pageBlock title="PageBlock which will not refresh">
+            <apex:pageBlockSection >
+                <apex:outputpanel id="panel1">
+                    <apex:inputtext label="Input Text Field" />
+              <!--      <apex:commandButton value="Count"/> -->
+                   <!--Invoking incrementCounter method from controller class on change event of input text
+					   and rerenders the pageblock with id pb2-->
+                    <apex:actionSupport event="onchange" action="{!incrementCounter}" rerender="pb2" status="actsupp"/>
+                    <apex:actionStatus starttext="Loading.........." id="actsupp"/>
+                </apex:outputpanel>
+                
+				</apex:pageBlockSection> 
+         <apex:pageblock title="PageBlock which will refresh" id="pb2">      
+             <apex:pageblocksection id="pbs1">
+                    <apex:outputtext value="{!count}" id="fld1" />
+             </apex:pageblocksection>
+         </apex:pageblock>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

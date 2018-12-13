@@ -1,0 +1,14 @@
+<apex:page controller="addTextrBox">
+<apex:Form >
+       <apex:commandButton Value="Add Text Box" action="{!addTextBox}"/>
+       
+
+       <apex:repeat value="{!listvalueOfTextBox}" var="item" rendered="{!IF(listvalueOfTextBox.size >= 1 , true , false)}" >
+           <apex:outPutLabel value="{!item.textBoxLabel}">
+           </apex:outPutLabel>
+           <apex:inputText value="{!item.textBoxValue}"/>
+           
+
+       </apex:repeat>
+</apex:Form>
+</apex:page>

@@ -1,0 +1,17 @@
+<aura:component controller="MyContactListController">
+<aura:handler name="init" action="{!c.myAction}" value="{!this}" />
+<aura:attribute name="contacts" type="Contact[]" />
+    <aura:attribute name="OnBehalfOf" type="Contact" />
+    <!--
+    <ul>
+    <aura:iteration items="{!v.contacts}" var="contact">
+    <li class="minli"> <h3>{!contact.Name}</h3> </li>
+    </aura:iteration>
+    </ul>-->
+    
+        <div class="slds-text-heading--small">On Behalf of</div>
+ 	   	<aura:attribute name="contact" type="Contact" default="{ 'sobjectType': 'Contact' }"/>
+        
+    	<force:inputField aura:id="accLookup" value="{!v.contact.OwnerId}"/>
+   
+</aura:component>

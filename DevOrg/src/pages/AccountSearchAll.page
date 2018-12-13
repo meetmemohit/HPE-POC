@@ -1,0 +1,38 @@
+<apex:page controller="AccountSearchAllController" docType="html-5.0">
+ <apex:form >
+     <apex:pageBlock title="Seach All Tasks and Events" />
+     <apex:pageBlock id="block" mode="edit">
+      <apex:pageBlockButtons >
+       <apex:commandButton action="{!DoSearch}" value="Search" />
+       <apex:commandButton action="{!Cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection columns="1" >
+            <apex:outputText value="{!If(ISBLANK(case_num), Acc_Name, case_num)}" label="Account Name" />
+        <!--  <apex:outputText value="{!acc.name}" label="Account Name" />
+            <apex:inputField value="{!acc.UserId__c}" label="Assigned To" required="true" id="userid" /> -->
+             <apex:selectList value="{!acttyp}" size="1" label="Type Of Activity">
+              <apex:selectOption itemValue="Task" />
+              <apex:selectOption itemValue="Call" />
+              <apex:selectOption itemValue="Task and Call" />
+          </apex:selectList>
+          <apex:input value="{!StartDate}" label="Start Date" required="true" type="date" id="startdate"/>      
+          <apex:input value="{!EndDate}" label="End Date" required="true" type="date" id="enddate"/>
+          </apex:pageBlockSection> 
+         <apex:actionStatus id="Status" startText="Searching......." />
+      <apex:pageBlockSection title="Tasks" columns="1" rendered="{!IsTask == true}" >     
+         <apex:pageBlockTable value="{!tsk}" var="tk">
+                <apex:column value="{!tk.whoid}"/>
+                <apex:column value="{!tk.subject}" />
+                <apex:column value="{!tk.ActivityDate}"/>
+                <apex:column value="{!tk.Status}"/>
+         </apex:pageBlockTable>
+      </apex:pageBlockSection>    
+      <apex:pageBlockSection title="Events" columns="1" rendered="{!IsEvent == true}" >    
+         <apex:pageBlockTable value="{!evnt}" var="ev">
+                <apex:column value="{!ev.whoid}"/>
+                <apex:column value="{!ev.ActivityDate}"/>
+         </apex:pageBlockTable>  
+      </apex:pageBlockSection>  
+     </apex:pageBlock>
+ </apex:form>
+</apex:page>

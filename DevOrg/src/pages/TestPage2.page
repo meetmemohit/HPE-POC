@@ -1,0 +1,18 @@
+<apex:page StandardController="Account" extensions="Extension1,Extension2">
+ <apex:form >
+   <apex:pageblock title="Quick Edit">
+    <apex:pageblockSection title="EDIT1">
+    </apex:pageblockSection>
+   <apex:pageBlockSection title="Account Details" columns="1">
+    <!--   <apex:OutputField value="{!account.name}" />  
+       <apex:inputfield value="{!account.accountnumber}" /> -->
+       <apex:outputText value="{!txt1}" label="Text 1"/>
+       <apex:outputText value="{!txt2}" label="Text 2"/>
+     </apex:pageBlockSection>
+     <apex:pageBlockSection >
+       <apex:commandButton action="{!display1}" value="Button 1"/>
+       <apex:commandButton action="{!display2}" value="Button 2"/>
+     </apex:pageBlockSection> 
+   </apex:pageblock>
+ </apex:form>
+ </apex:page>

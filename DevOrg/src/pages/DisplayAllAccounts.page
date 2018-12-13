@@ -1,0 +1,23 @@
+<apex:page standardController="Account" recordSetVar="accounts" showHeader="false" sidebar="false">
+<apex:form >
+  <apex:pageBlock >
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!Save}" value="Save"/ >
+        <apex:commandButton action="{!Cancel}" value="cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageblocktable value="{!accounts}" var="acc">
+          <apex:column headerValue="Name" >
+              <apex:inputField value="{!acc.name}" />
+          </apex:column>
+          <apex:column headerValue="Type" >
+              <apex:inputField value="{!acc.Type}"/>
+          </apex:column>
+          <apex:column headerValue="Check Box">
+              <apex:inputcheckbox />
+          </apex:column>
+      </apex:pageblocktable>
+      <apex:commandLink action="{!previous}">Previous</apex:commandLink> <nb/>
+      <apex:commandLink action="{!next}">Next</apex:commandLink>
+  </apex:pageBlock>  
+ </apex:form>    
+</apex:page>

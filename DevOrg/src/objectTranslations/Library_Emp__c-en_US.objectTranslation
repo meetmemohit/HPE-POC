@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Library Emp</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Library Emps</value>
+    </caseValues>
+    <fields>
+        <label><!-- Customer Id --></label>
+        <name>Customer_Id__c</name>
+        <relationshipLabel><!-- Library Emps --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Employee Name --></label>
+        <name>Employee_Name__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

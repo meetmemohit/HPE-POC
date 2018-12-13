@@ -1,0 +1,112 @@
+<apex:page controller="CRM_SearchAllActivityController" docType="html-5.0" sidebar="false" showHeader="true" tabStyle="Account">
+    <style type="text/css">
+         .bPageHeader {display:none; }
+        .globalHeaderBar { display:none; }
+    </style>
+    <apex:includeScript value="/support/console/22.0/integration.js"/>
+    <script type="text/javascript">
+     function testOpenSubtab(url) {
+          //First find the ID of the primary tab to put the new subtab in
+            sforce.console.getEnclosingPrimaryTabId(openSubtab);
+	      }
+	        var openSubtab = function openSubtab(result) {
+ 	            //Now that we have the primary tab ID, we can open a new subtab in it
+	            var primaryTabId = result.id;
+                alert('Hi '+ primaryTabId)
+                sforce.console.openSubtab(null ,'/'+url, false);
+	        };
+   </script>
+    
+    <apex:outputpanel id="op">
+        <apex:actionstatus id="actStatusId">
+            <apex:facet name="start">
+                <div class="waitingSearchDiv" id="el_loading" style="background-color:#1C1C1C;
+                       height: 100%;opacity:0.65;width:100%;"> 
+                    <div class="waitingHolder" style="display: inline-block; padding: 2px; background-color: #fff; top: 91px; width: 125px;">
+                        <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                        <span class="waitingDescription">Please Wait......</span>
+                    </div>
+                </div>
+            </apex:facet>
+        </apex:actionstatus>
+    </apex:outputpanel>
+     
+    <apex:form id="formid"> 
+        <apex:pageMessages id="showMsg" /> 
+        <apex:pageBlock mode="edit" title="Search All Events and Tasks">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!DoSearch}" value="Search" status="actStatusId"  reRender="op_results,showMsg"/>
+                <apex:commandButton action="{!Export}" value="Export" status="actStatusId" />
+                <!--  <apex:commandButton action="{!Cancel}" value="Cancel" status="status" immediate="true" /> -->
+            </apex:pageBlockButtons>            
+            <!-- Page Block Section Start -->
+            <apex:pageBlockSection title="Search Filters">
+                <apex:pageBlockSectionItem >
+                  <apex:outputLabel value="Account Name"/>
+                    <apex:outputText value="{!Accname}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Type of Activity" style="font-weight:bold"/>
+                    <apex:selectList value="{!activityType}" size="1">
+                        <apex:selectOption itemValue="Tasks and Calls" />
+                        <apex:selectOption itemValue="Task" />
+                        <apex:selectOption itemValue="Call" />                            
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!eventObject.StartDateTime}" label="Start Date" required="true"/>
+                <apex:inputField value="{!eventObject.EndDateTime}" label="End Date" required="true" />
+                <apex:pageBlockSectionItem helpText="Please Enter Full Name of User" labelTitle="User Name" >
+                    <apex:outputLabel value="Assigned To" style="font-weight:bold"/>
+                    <apex:inputText value="{!assignedTo}" label="Assigned To"/>
+                </apex:pageBlockSectionItem>                
+                <apex:inputCheckbox value="{!excludeInvitee}" label="Exclude Invitee"/>
+            </apex:pageBlockSection>                    
+        </apex:pageBlock>
+              
+        <apex:outputPanel id="op_results" >
+            <apex:pageBlock id="pb">
+                <apex:pageBlockButtons >
+                <apex:commandButton action="{!PreviousPage}" value="Previous" rendered="{!OR(showTask == True, ShowEvent == True)}" disabled="{!noPrev}"/>
+                <apex:commandButton action="{!NextPage}" value="Next" rendered="{!OR(showTask == True, ShowEvent == True)}" disabled="{!AND(NoTask == true,noEvent == true)}"/>    
+               </apex:pageBlockButtons>
+             <!--   <apex:pageBlockSection rendered="{!showError}" title="Name entered in Assigned To field is either not Full name or does not exist in database." /> -->
+                <apex:pageBlockSection columns="1" rendered="{!showTask}" title="{!IF(listTask!= NULL && listTask.size > 0,'Task & Notes','Task & Notes : There are no records for matching Criteria')}">     
+                    <apex:pageBlockTable value="{!listTask}" var="t" rendered="{!listTask!= NULL}"> 
+                        <apex:column headerValue="Subject">
+                           <apex:outputLink value="#" onclick="testOpenSubtab('{!t.id}')">{!t.Subject}</apex:outputLink>
+                        </apex:column> 
+                        <apex:column value="{!t.WhatId}"/>
+                        <apex:column value="{!t.WhoId}"/> 
+                        <apex:column value="{!t.OwnerId}"/>                    
+                        <apex:column value="{!t.ActivityDate}"/>
+                    <!--    <apex:column value="{!t.Type__c}"/>
+                        <apex:column value="{!t.Sub_Type__c}"/>
+                        <apex:column value="{!t.Method__c}"/>
+                        <apex:column value="{!t.Activity_Completed__c}"/> -->
+                        <apex:column headerValue="Comments">
+                            <apex:outputText title="{!t.Description}" value="{!left(t.Description,200)}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>
+                    </apex:pageBlockSection>    
+                    <apex:pageBlockSection columns="1" rendered="{!showEvent}" title="{!IF(listEvent!= NULL && listEvent.size > 0,'Call Details','Call Details : There are no records for matching Criteria')}">    
+                        <apex:pageBlockTable value="{!listEvent}" var="e" rendered="{!listEvent.size != null}">
+                        <apex:column headerValue="Subject">
+                        <apex:outputLink value="/{!e.id}">{!e.Subject}</apex:outputLink>
+                        </apex:column>
+                        <apex:column value="{!e.WhatId}"/> 
+                        <apex:column value="{!e.WhoId}"/> 
+                        <apex:column value="{!e.OwnerId}"/>                    
+                        <apex:column value="{!e.ActivityDate}"/>
+                     <!--   <apex:column value="{!e.Type__c}"/>
+                        <apex:column value="{!e.Sub_Type__c}"/>
+                        <apex:column value="{!e.Method__c}"/>
+                        <apex:column value="{!e.Activity_Completed__c}"/> -->
+                        <apex:column headerValue="Public Notes">
+                           <apex:outputText title="{!e.Description}" value="{!left(e.Description,200)}"/>
+                        </apex:column>
+                    </apex:pageBlockTable>  
+                </apex:pageBlockSection>  
+            </apex:pageBlock>
+        </apex:outputPanel>  
+   </apex:form>
+</apex:page>

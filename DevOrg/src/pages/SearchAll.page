@@ -1,0 +1,16 @@
+<apex:page standardController="Positions__c" Extensions="SearchAllExtension">
+ <apex:form >
+     <apex:pageBlock title="Search all Activities related to Position on this Page" id="Block" mode="Edit">
+       <apex:pageBlockSection >
+         <apex:PageBlockSectionItem >
+           <apex:panelGroup >
+             <apex:inputText id="searchActivity" value="{!activity}" label="AssignedTo"/>
+             <apex:commandButton action="{!DoSearch}" value="Search" reRender="Block"/>
+           </apex:panelGroup>
+         </apex:PageBlockSectionItem>      
+       </apex:pageBlockSection>         
+     </apex:pageBlock>
+ 
+ </apex:form>
+    
+</apex:page>

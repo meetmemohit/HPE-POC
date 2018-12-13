@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Site</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Annual_Revenue__c</fullName>
+        <externalId>false</externalId>
+        <label>Annual Revenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>At_Risk__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>At Risk</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>COS_Standard__c</fullName>
+        <externalId>false</externalId>
+        <label>COS Standard</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Review_Standard__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Review Standard</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Description</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DUNS__c</fullName>
+        <externalId>false</externalId>
+        <label>DUNS</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Became_Client__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Became Client</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Employees__c</fullName>
+        <externalId>false</externalId>
+        <label>Employees</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Enrollment Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Status_Last_Edit_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Enrollment Status Last Edit Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Enrollment Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Client Interested</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Contact Attempted - F/U</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrolled</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrolled/Action Plan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrolled/Action Plan/SummitView</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Enrolled/Expanded</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moved to PWM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not Initially Interested - F/U</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Not Interested</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unqualified</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>External_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FP_Engagement_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>FP Engagement Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fax__c</fullName>
+        <externalId>false</externalId>
+        <label>Fax</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Functional_Role__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.Title</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Functional Role</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Has_Financial_Plan__c</fullName>
+        <externalId>false</externalId>
+        <label>Has Financial Plan</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Introduced_by_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Introduced by Contact</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Relationships</relationshipLabel>
+        <relationshipName>Relationships</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Personal_Business_Personal_Integration_B__c</fullName>
+        <externalId>false</externalId>
+        <label>Personal Business Personal Integration B</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Previous_PRA__c</fullName>
+        <externalId>false</externalId>
+        <label>Previous PRA</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Relationship_Advisor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner:User.FirstName &amp; &quot; &quot; &amp; Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Primary Relationship Advisor</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Private__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Private</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Relationship_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Relationship Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Personal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Personal Integration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Business Integration</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Personal and Business</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Relationship_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Relationship_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Relationship Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Prospect</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Client</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Center of Influence</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Test_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>Relationship</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Relationship_Queue_Relationship</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Relationship Queue</label>
+        <queue>Relationship_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>Relationship Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Relationships</pluralLabel>
+    <searchLayouts>
+        <listViewButtons>Reassign_Relationship</listViewButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Reassign_Relationship</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Reassign Relationship</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/17.0/connection.js&quot;)} 
+
+var records = {!GETRECORDIDS($ObjectType.Relationship__c)}; 
+var newRecords = []; 
+var listvid = window.location.search.substring(1); 
+window.alert(records);
+
+if (records[0] == null) 
+{ 
+alert(&quot;Please select at least one row&quot;) 
+} 
+else 
+{ 
+window.location.href = &apos;/apex/ReassignPRA&apos;+&apos;?urlparm=&apos;+records+&apos;&amp;retURL=&apos;+listvid; 
+}</url>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,23 @@
+<!-- <apex:page standardController="Opportunity" extensions="ReassignOpportunityController"> -->
+<apex:page Controller="ReassignOpportunityController">
+<apex:form >
+    <apex:pageBlock title="Reassign all relationships" />
+    <apex:pageBlock >
+    <apex:messages ></apex:messages>
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!DoReassign}" value="Reassign"/>
+        <apex:commandButton action="{!Cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection columns="1"  title="All Opportunities for Reassignment">
+          <apex:pageBlockTable value="{!OppList}" var="op">
+            <apex:column title="Select Records" >
+                <apex:inputCheckbox value="{!op.selrec}" />
+            </apex:column>
+            <apex:column value="{!op.topp.name}"/>
+            <apex:column value="{!op.topp.ownerId}"/>
+              <apex:column value="{!op.topp.type}" />
+          </apex:pageBlockTable>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

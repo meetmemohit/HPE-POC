@@ -1,0 +1,5 @@
+<apex:page controller="repeatCont" id="mypage">
+    <apex:form id="myform">
+    <apex:inputText styleClass="cssbody" value="{!datename}" size="10" id="demo" onfocus="DatePicker.pickDate(false, 'myPage:myForm:demo', false);" />
+   </apex:form>
+</apex:page>

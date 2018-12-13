@@ -1,0 +1,1683 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" applyHtmlTag="false" docType="html" controller="Test_Angular">
+<apex:form >
+<html data-ng-app="stApp">
+
+ <head>
+
+    <!-- App styles -->
+    <apex:stylesheet value="{!URLFOR($Resource.G_assetsFolder, 'assests/css/boostrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.G_assetsFolder, 'assests/css/boostrap-theme.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.G_assetsFolder, 'assests/css/angucomplete-alt.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.G_assetsFolder, 'assests/css/main.css')}"/>
+
+    <!-- load angular via CDN & scripts -->
+    
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"/>
+    <apex:includeScript value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"/>
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"/>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular-touch.min.js"/>
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"/>
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"/>
+    <apex:includeScript value="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"/>
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"/>
+     <apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"/>
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"/>
+    <apex:includeScript value="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"/>
+    
+    <apex:includeScript value="{!URLFOR($Resource.G_appJS, 'app/app.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.G_appJS, 'app/controllers/mainController.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.G_appJS, 'app/controllers/otherControllers.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.G_appJS, 'app/js/angular-ui-router.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.G_appJS, 'app/js/angucomplete-alt.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.G_appJS, 'app/js/shweta.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.G_appJS, 'app/js/ui-bootstrap-tpls-0.14.2.min.js')}"/>
+    <script type="text/javascript">
+     // var app = angular.module('stApp', []);
+     //app.controller('ModalDemoCtrl', function($scope) { 
+     //$scope.saveprofile = function() {
+         // alert("I am updating");    
+         //$scope.contacts.push(LastName: $scope.user.lastname ,FirstName: $scope.user.firstname, User_ID__c: $scope.userid);
+     //    {!fname} = $scope.user.firstname;
+     //};
+     //};)
+       function saveprofile(fname){
+         
+            alert('I am here'+ fname);
+       
+     }
+</script>
+    </head>
+     
+     <body>
+
+    <header class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <a class="navbar-brand" href="#"><apex:image url="{!URLFOR($Resource.G_assetsFolder,'assests/img/SunTrust-logo.png')}"/></a>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <a href="#" style="font-weight: 500">
+                        <div class="circle glyphicon glyphicon-menu-hamburger"></div>
+                        <h6>Menu</h6>
+                    </a>
+                </li>
+                <li>
+                    <div class="form-group has-feedback">
+                        <input type="text" class="form-control" placeholder="Search Portal" />
+                        <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                       <h6 style="color: #ED8B3B">Sign Off</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" style="font-weight: 500">
+                        <h6>My Settings</h6>
+                        <div class="circle glyphicon glyphicon-user"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <nav style="z-index: 1">
+        <div class="subnav">
+            <div class="container">
+                <ul class="suntrust-app-nav-list">
+                    <li>
+                        <a href="">
+                            Dashboard <span class="suntrust-subtext">Launch your apps</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <span class="suntrust-messages-count">2</span>Messages
+                            <span class="suntrust-subtext">Alerts &amp; announcements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Resources
+                            <span class="suntrust-subtext">Traning &amp; tools</span>
+                        </a>
+                    </li>
+                    <li class="suntrust-active">
+                        <a ui-sref="manage-users">
+                            Admin
+                            <span class="suntrust-subtext">Manage Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            Support
+                            <span class="suntrust-subtext">FAQ &amp; contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AND INJECTED VIEWS -->
+    <div class="container" id="main">
+        <div class="page ng-scope">
+          <!--  <apex:form > -->
+        <div id="wrap">
+    <div class="main-headingArea">
+        <div class="col-md-8  col-xs-8 pull-left">
+            <h1 class="main-heading">Manage Profile <span>for {!con.name}</span></h1>
+        </div>
+        <div class="col-md-4 col-xs-4 pull-right close-btnArea">
+            Close<a ui-sref="manage-users" class="btn btn-blue btn-close">X</a> 
+        </div>
+    </div>
+    <div class="manageprofile-area">
+        <nav class="navbar inner-sub-nav" role="navigation">
+            <div class="col-md-6 col-xs-6 pull-right sub-nav-Btn" ng-controller="ModalDemoCtrl">
+                <button type="button" data-ng-click="resetPasswordModal()" class="btn btn-white pull-right"><span class="icon-lock"></span>Reset Password</button>
+                <button type="button" data-ng-click="removeUserModal()"  class="btn btn-white pull-right">Remove User</button>
+            </div>
+        </nav>
+        <!-- Sub Navigation Area end -->
+        <div class="clearfix"></div>
+        <div class="grey-bg"></div>
+        <div class="clearfix"></div>
+        <!-- Manage Profile Sections area starts -->
+        <div class="container-fluid manage-profile">
+            <!-- Profile Section Starts -->
+            <div class="section" id="profileContainer">
+                <div ng-show="!popup.editProfile">
+                    <div class="section-heading">
+                        <div class="col-md-6 col-xs-6 pull-left section-heading-inner">
+                            <h3>Profile</h3>
+                        </div>
+                        <div class="col-md-6 col-xs-6 pull-right section-heading-inner">
+                            <button type="button" onclick="ScrollToProfile()" class="btn btn-blue" ng-click="popup.editProfile = true">Edit Profile</button>
+                        </div>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-3 text-right">Name</label>
+                            <div class="col-md-9 col-xs-9 text-left">{!con.name}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-3 text-right">User ID</label>
+                            <div class="col-md-9 col-xs-9 text-left">{!con.user_id__c}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-3 text-right">Role</label>
+                            <div class="col-md-9 col-xs-9 text-left">{!con.title}</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-3 text-right">Status</label>
+                            <div class="col-md-9 col-xs-9 text-left">{!con.user_status__c}</div>
+                        </div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+                <div class="containerOfPopup" ng-show="popup.editProfile">
+                    <div class="custom-popup col-md-12">
+                        <div class="popup-headingArea">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6 pull-left">
+                                    <h4>Profile</h4>
+                                </div>
+                            </div>
+                        </div>
+   
+                        <div class="popup-content">
+                            <div class="popup-content-heading">
+                                <h5>Name</h5>
+                            </div>
+                            <form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left" name="profileForm">
+                                <div class="form-group">
+                                    <span class="small-text">Optional</span>
+                                    <div class="custom-select">
+                                        <select class="form-control custom-dropdown">
+                                            <option value="" disabled="" selected="">Title</option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="small-text">First Name</label>
+                                    <div ng-class="{'has-error': profileForm.firstname.$dirty && profileForm.firstname.$error.required, 'has-success' : profileForm.firstname.$dirty && profileForm.firstname.$valid }">
+                                        <input type="text"  ng-model = "user.firstname" name="firstname" required="true" class="form-control" ng-init="user.firstname='{!con.firstname}'"/>
+                                        {{user.firstname}}
+                                        <div class="error-content" ng-show = "profileForm.firstname.$dirty && profileForm.firstname.$error.required">
+                                            <span class="icon-alert"></span>
+                                            <span class="help-inline">Please correct the error</span>
+                                        </div>
+                                        <div class="sucess-content" ng-show = "profileForm.firstname.$dirty && profileForm.firstname.$valid">
+                                            <span class="icon-success"></span>
+                                            <span class="green-strip"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="small-text">Optional</span>
+                                    <div class="">
+                                        <input type="text" class="form-control placeholder-field" Placeholder="Middle Name"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="small-text">Last Name</label>
+                                    <div ng-class="{'has-error': profileForm.lastname.$dirty && profileForm.lastname.$error.required, 'has-success' : profileForm.lastname.$dirty && profileForm.lastname.$valid }">
+                                        <input type="text"  ng-model = "user.lastName" name="lastname" required="true" class="form-control" ng-init="user.lastname='{!con.LastName}'" value="{!cont.lastname}"/>
+                                        {{user.lastname}} 
+                                        <div class="error-content" ng-show = "profileForm.lastname.$dirty && profileForm.lastname.$error.required">
+                                            <span class="icon-alert"></span>
+                                            <span class="help-inline">Please correct the error</span>
+                                        </div>
+                                        <div class="sucess-content" ng-show = "profileForm.lastname.$dirty && profileForm.lastname.$valid">
+                                            <span class="icon-success"></span>
+                                            <span class="green-strip"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="small-text">Optional</span>
+                                    <div class="custom-select">
+                                        <select class="form-control custom-dropdown">
+                                            <option value="" disabled="true" selected="true">Surffix</option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="popup-content">
+                            <div class="popup-content-heading">
+                                <h5>User</h5>
+                            </div>
+                            <form class="form-horizontal col-md-offset-3 col-md-6  col-xs-offset-3 col-xs-6 text-left">
+                                <div class="form-group">
+                                    <label class="small-text">User ID</label>
+                                    <!--<div class=""><input type="text" class="form-control"/> </div> -->
+                                    <div class="custom-user-id">
+                                        <script type="text/ng-template" id="customPopupTemplate.html">
+                                            <div class="custom-popup-wrapper"
+                                                 ng-style="{top: position().top+'px', left: position().left+'px'}"
+                                                 style="display: block;"
+                                                <!-- ng-show="isOpen() && !moveInProgress"
+                                                 aria-hidden="{{!isOpen()}}" --> >
+                                                <p class="message">That User ID is taken <br/> <span>Still Available:</span></p>
+                                                <ul class="dropdown-menu" role="listbox">
+                                                    <li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"
+                                                        ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">
+                                                        <div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </script>
+                                        <input type="text" popover-placement="right" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="focus" ng-model="user.userId" ng-init="user.userId='{!con.User_ID__c}'" value="{!cont.User_ID__c}" uib-typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control"/>
+                                        <script type="text/ng-template" id="myPopoverTemplate.html">
+                                            <div class="popover-heading">{{dynamicPopover.content}}</div>
+                                            <div class="">
+                                                <ul class="list-unstyled">
+                                                    <li ng-class="{'selected' : user.userId && user.userId.length>=8&&user.userId.length<=20, 'deselected': !user.userId || user.userId.length < 8 || user.userId.length >20}">Must be 8-20 characters</li>
+                                                    <li ng-class="{'selected' :  verifyLetterNumber(), 'deselected': !verifyLetterNumber()}">Must Include at least one letter and one number</li>
+                                                    <li ng-class="{'selected' :  !verifySpaces(),'deselected': verifySpaces()}">Can't contain spaces</li>
+                                                    <li ng-class="{'selected' :  !specialCharCheck(),'deselected': specialCharCheck()}">Can't contain special character</li>
+                                                    <li ng-class="{'selected': verifyUnique(), 'deselected': !verifyUnique()}">Must be unique</li>
+                                                </ul>
+                                            </div>
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="small-text">Role</label>
+                                    <div class="">
+                                        <select class="form-control custom-dropdown">
+                                            <option value="" disabled="true" selected="true">Application User</option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="popup-footer" ng-controller="ModalDemoCtrl">
+                            <div class="pull-right" ng-controller="ModalDemoCtrl">
+                                <button type="button" class="btn btn-blue" onclick="saveprofile()" ng-click="popup.editProfile = false">Save</button>
+                            </div>
+                        <!--    <apex:actionFunction name="saveprofile" action="{!saveprofile}">
+                                <apex:param name="fname" value="" /> 
+                            </apex:actionFunction> -->
+                            <div class="close-circlebtnArea pull-right" ng-click="popup.editProfile = false">
+                                <span class="btn-circleclose"></span> Cancel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile Section Ends -->
+            <div class="clearfix"></div>
+            <!-- Contact Section Starts -->
+            <div class="section" id="contactContainer">
+                <div ng-if="!popup.editContact">
+                    <div class="section-heading">
+                        <div class="col-md-6 col-xs-6 pull-left section-heading-inner">
+                            <h3>Contact</h3>
+                        </div>
+                        <div class="col-md-6 pull-right section-heading-inner">
+                            <button type="button"  onclick="ScrollToContact()" class="btn btn-blue" ng-click="popup.editContact = true">Edit Contact</button>
+                        </div>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-3 text-right">EmaiL Address</label>
+                            <div class="col-md-9 col-xs-9 text-left">JAbel@Acme.com</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 col-xs-3 text-right">Phone Numbers(s)</label>
+                            <div class="col-md-9 col-xs-9 text-left">
+                                Primary Phone
+                                <div>(Office) 999-999-9999</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+                <div class="containerOfPopup" ng-if="popup.editContact">
+                    <div class="custom-popup col-md-12">
+                        <div class="popup-headingArea">
+                            <div class="row">
+                                <div class="col-md-6  col-xs-6 pull-left">
+                                    <h4>Contact</h4>
+                                </div>
+                                <!--    <div class="col-md-6 col-xs-6 pull-right">
+                                                                         <div class="pull-right">
+                                                                                 <button type="button" class="btn btn-blue" ng-click="popup.editContact = false">Save</button>
+                                                                             </div>
+                                                                             <div class="close-circlebtnArea pull-right" ng-click="popup.editContact = false">
+                                                                     <span class="btn btn-blue btn-circleclose">X</span> Cancel
+                                                                 </div>
+                                                                     </div> -->
+                            </div>
+                        </div>
+                        <div class="popup-content">
+                            <div class="popup-content-heading">
+                                <h5>Email</h5>
+                            </div>
+                            <form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left">
+                                <div class="form-group">
+                                    <label class="small-text">Email Address</label>
+                                    <div class=""><input type="text" class="form-control"/> </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="popup-content">
+                            <div class="popup-content-heading">
+                                <h5>Phone Numbers</h5>
+                            </div>
+                            <form class="form-horizontal col-md-offset-3 col-md-6  col-xs-offset-3 col-xs-6 text-left">
+                                <div class="form-group">
+                                    <label class="small-text">Phone Type</label>
+                                    <div class="">
+                                        <select class="form-control custom-dropdown">
+                                            <option value="" disabled="true" selected="true">Office</option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="small-text">Phone Country</label>
+                                    <div class="">
+                                        <select class="form-control custom-dropdown">
+                                            <option value="" disabled="true" selected="true">United State (+1)</option>
+                                            <option>Option 1</option>
+                                            <option>Option 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="small-text">Phone Number</label>
+                                    <div class=""><input type="text" class="form-control"/> </div>
+                                </div>
+                                <div class="form-group add-anthrNo">
+                                    <a href="#">Add another phone number</a>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="popup-footer">
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-blue" ng-click="popup.editContact = false">Save</button>
+                            </div>
+                            <div class="close-circlebtnArea pull-right" ng-click="popup.editContact = false">
+                                <span class="btn-circleclose"></span> Cancel
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Section Ends -->
+            <div class="clearfix"></div>
+            <!-- Application Section Starts -->
+            <div class="section" id="applicationContainer">
+                <div ng-if="!popup.editApplication">
+                    <div class="section-heading">
+                        <div class="col-md-6 pull-left section-heading-inner">
+                            <h3>Applications</h3>
+                        </div>
+                        <div class="col-md-6 col-xs-6 pull-right section-heading-inner">
+                            <button type="button" onclick="ScrollToApplication()" class="btn btn-blue" ng-click="popup.editApplication = true">Edit Applications</button>
+                        </div>
+                    </div>
+                    <form class="form-horizontal">
+                        <div class="form-group" ng-repeat= "application in applications">
+                            <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">
+                                <div class="inner-content" ng-class="{'selected': application.selected == true}">
+                                    <span class="icon-complete"></span>
+                                    <label class="">{{application.heading}}</label>
+                                    <span>{{application.subHeading}}</span>
+                                </div>
+                                <button type="button" class="btn btn-white ng-hide">Remove</button>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                                                    <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">
+                                                        <div class="inner-content selected">
+                                                            <span class="icon-complete"></span>
+                                                            <label class="">SunView Treasury Manager</label>
+                                                            <span>Added Mar 16, 2015 by John smith</span>
+                                                        </div>
+                                                        <button type="button" class="btn btn-white ng-hide">Remove</button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">
+                                                        <div class="inner-content">
+                                                            <span class="icon-complete"></span>
+                                                            <label class="">SunView Treasury Manager</label>
+                                                            <span>Added Mar 16, 2015 by John smith</span>
+                                                        </div>
+                                                        <button type="button" class="btn btn-white">Remove</button>
+                                                    </div>
+                                                </div> -->
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+                <div class="containerOfPopup" ng-if="popup.editApplication">
+                    <div class="custom-popup col-md-12">
+                        <div class="popup-headingArea">
+                            <div class="row">
+                                <div class="col-md-6  col-xs-6 pull-left">
+                                    <h4>Application</h4>
+                                </div>
+                                <!-- <div class="col-md-6 col-xs-6 pull-right">
+                                                                    <div class="pull-right">
+                                                                            <button type="button" class="btn btn-blue" ng-click="popup.editApplication = false">Save</button>
+                                                                        </div>
+                                                                        <div class="close-circlebtnArea pull-right" ng-click="popup.editApplication = false">
+                                                                <span class="btn btn-blue btn-circleclose">X</span> Cancel
+                                                            </div>
+                                                                </div> -->
+                            </div>
+                        </div>
+                        <div class="popup-content row application-contr">
+                            <div class="steps">
+                                <a ng-click= "steps_toogle('step1')" ng-class="{'active':applicationsteps.step1}"><span>Select Applications</span></a>
+                                <a ng-class="{'active':applicationsteps.step2}"><span>Processing</span></a>
+                                <a ng-click= "steps_toogle('step3')" ng-class="{'active':applicationsteps.step3}"><span>Cofirmation</span></a>
+                            </div>
+                            <div ng-if="applicationsteps.step1">
+                                <!--select application view starts-->
+                                <div ng-if="isAllSelected">
+                                    <div class="popup-headingArea">
+                                        <h4>Select or deselect applications to add or remove application for this user.</h4>
+                                    </div>
+                                    <form class="form-horizontal">
+
+                                        <div class="form-group" ng-repeat="application in applications">
+                                            <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                <div class="inner-content selected">
+                                                    <div class="icon-select">
+                                                        <input type="checkbox" ng-model="application.selected" id="checkbox-{{$index}}" class="custom-checkbox"/>
+                                                        <label for="checkbox-{{$index}}"></label>
+                                                    </div>
+                                                    <div class="heading">{{application.heading}}</div>
+                                                    <span class="sub-heading">{{application.subHeading}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                                                                    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                                                        <div class="inner-content selected">
+                                                                                            <div class="icon-select">
+                                                                                                <input type="checkbox" id="checkbox-1" class="custom-checkbox">
+                                                                                                <label for="checkbox-1"></label>
+                                                                                            </div>
+                                                                                            <div class="heading">Online ACH Control</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                                                        <div class="inner-content">
+                                                                                            <div class="icon-select">
+                                                                                                <input type="checkbox" id="checkbox-2" class="custom-checkbox">
+                                                                                                <label for="checkbox-2"></label>
+                                                                                            </div>
+                                                                                            <span class="icon-reload"></span>
+                                                                                            <div class="bundle-content">
+                                                                                                <div class="heading">Online Cash Manager</div>
+                                                                                                <span class="sub-heading">Added Mar 16, 2015 by John xsith</span>
+                                                                                            </div>
+                                                                                            <div class="mesg-note">
+                                                                                                <div uib-popover-template="templateUrl" popover-placement="bottom">Note</div>
+                                                                                                <script type="text/ng-template" id="myPopoverTemplate.html">
+                                                                                                    <p>App removed based on request of their client rep</p>
+                                                                                                    <small>Added by John Smith on May 20,2015</small>
+                                                                                                </script>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                                                        <div class="inner-content selected">
+                                                                                            <div class="icon-select">
+                                                                                                <input type="checkbox" id="checkbox-3" class="custom-checkbox">
+                                                                                                <label for="checkbox-3"></label>
+                                                                                            </div>
+                                                                                            <div class="heading">Online ACH Control</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                                                        <div class="inner-content selected">
+                                                                                            <div class="icon-select">
+                                                                                                <input type="checkbox" id="checkbox-4" class="custom-checkbox">
+                                                                                                <label for="checkbox-4"></label>
+                                                                                            </div>
+                                                                                            <div class="heading">Online ACH Control</div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                                                        <div class="inner-content">
+                                                                                            <div class="icon-select">
+                                                                                                <input type="checkbox" id="checkbox-5" class="custom-checkbox">
+                                                                                                <label for="checkbox-5"></label>
+                                                                                            </div>
+                                                                                            <div class="heading">Online Cash Manager</div>
+                                                                                            <span class="sub-heading">Added Mar 16, 2015 by John xsith</span>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div> -->
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <div class="popup-footer">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-blue" ng-click= "steps_toogle()">Next</button>
+                                        </div>
+                                        <div class="close-circlebtnArea pull-right" ng-click="popup.editApplication = false; cancelChanges()">
+                                            <span class="btn-circleclose"></span> Cancel
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- select application view ends ends-->
+                                <!--remove application view starts starts-->
+                                <div ng-if="!isAllSelected">
+                                    <div class="popup-headingArea">
+                                        <h4>Are you sure you want to remove <span ng-repeat="application in applications" ng-if = "!application.selected"> {{application.heading}}, </span> for this user?</h4>
+                                        <div>You may include an optional note to confirm this action</div>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">
+                                            <div class="form-group">
+                                                <label class="small-text">Note</label>
+                                                <div class="">
+                                                    <textarea class="form-control big-textarea" ng-model= "feedback" max-length ="155"></textarea>
+                                                    <div class="character-count">{{155- feedback.length}} characters remaining</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <div class="popup-footer">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-blue" ng-click= "steps_toogle('step3')">Yes, Remove Application</button>
+                                        </div>
+                                        <div class="close-circlebtnArea pull-right" ng-click="popup.editApplication = false; cancelChanges()">
+                                            <span class="btn-circleclose"></span> Cancel
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--when remove application view ends ends-->
+                            </div>
+                            <div ng-if="applicationsteps.step2">
+                                <div class="popup-headingArea">
+                                    <h4>Processing applications</h4>
+                                </div>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                            <div class="inner-content selected">
+                                                <div class="icon-select">
+                                                    <div class="icon-confirmation"></div>
+                                                </div>
+                                                <span class="icon-reload"></span>
+                                                <div class="bundle-content">
+                                                    <div class="heading">Online Cash Manager</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                            <div class="inner-content selected">
+                                                <div class="icon-select">
+                                                    <div class="icon-confirmation"></div>
+                                                </div>
+                                                <div class="bundle-content">
+                                                    <div class="heading">Online Foreign Currency Exchange - added</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="overlay-processing"></div>
+                                    </div>
+                                </form>
+                                <div class="clearfix"></div>
+                                <div class="popup-footer loading-container">
+                                    <div class="loading">
+                                        <!-- <div class="loading-bar"></div>
+                                                                                <div class="loading-bar"></div>
+                                                                                <div class="loading-bar"></div>
+                                                                                <div class="loading-bar"></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="applicationsteps.step3">
+                                <!-- select application view ends starts-->
+                                <div ng-if="isAllSelected">
+                                    <div class="popup-headingArea">
+                                        <h4>2 applications processed successfully</h4>
+                                    </div>
+                                    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 ">
+                                        <div class="confirmation-mesg">
+                                            <h5>User entitlements require set up or review for added application(s).</h5>
+
+                                            <p>If you have application administration access, select the open application link to
+                                               directly access abd set up or review user entitlements for the application.</p>
+
+                                            <p>Otherwise, select to notify the application administrator by email that this new user
+                                               requires entitlement setup or review.</p>
+                                        </div>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                <div class="inner-content selected">
+                                                    <div class="icon-select">
+                                                        <div class="icon-confirmation"></div>
+                                                    </div>
+                                                    <span class="icon-reload"></span>
+                                                    <div class="bundle-content">
+                                                        <div class="heading">Online Cash Manager</div>
+                                                    </div>
+                                                    <div class="link">
+                                                        <a href="#">Open application</a>
+                                                        |
+                                                        <a href="#">Email application administrator</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                <div class="inner-content selected">
+                                                    <div class="icon-select">
+                                                        <div class="icon-confirmation"></div>
+                                                    </div>
+                                                    <div class="bundle-content">
+                                                        <div class="heading">Online Cash Manager</div>
+                                                    </div>
+                                                    <div class="link">
+                                                        <a href="#">Open application</a>
+                                                        |
+                                                        <a href="#">Email application administrator</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <div class="popup-footer">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-blue" ng-click="popup.editApplication = false; setupAutoHide()">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- select application view ends ends-->
+                                <!-- remove application view ends starts-->
+                                <div ng-if="!isAllSelected">
+                                    <div class="popup-headingArea">
+                                        <h4>1 of 2 Applications processed successfully</h4>
+                                    </div>
+                                    <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 ">
+                                        <div class="confirmation-mesg">
+                                            <h5>User entitlements require set up or review for added application(s).</h5>
+
+                                            <p>If you have application administration access, select the open application link to
+                                               directly access abd set up or review user entitlements for the application.</p>
+
+                                            <p>Otherwise, select to notify the application administrator by email that this new user
+                                               requires entitlement setup or review.</p>
+                                        </div>
+                                    </div>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                <div class="inner-content selected">
+                                                    <div class="icon-select">
+                                                        <div class="icon-confirmation"></div>
+                                                    </div>
+                                                    <span class="icon-reload"></span>
+                                                    <div class="bundle-content">
+                                                        <div class="heading">Online Cash Manager</div>
+                                                    </div>
+                                                    <div class="link">
+                                                        <a href="#">Open application</a>
+                                                        |
+                                                        <a href="#">Email application administrator</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">
+                                                <div class="inner-content">
+                                                    <div class="icon-select">
+                                                        <div class="icon-fail"></div>
+                                                    </div>
+                                                    <div class="bundle-content">
+                                                        <div class="heading">SunView Treasury Manager - removal failed</div>
+                                                        <div>The app is not reponding.Please try again later. If you continue to have issues please contact custome service.</div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-white">Retry</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <div class="popup-footer">
+                                        <div class="pull-right">
+                                            <button type="button" class="btn btn-blue" ng-click="popup.editApplication = false; setupAutoHide()">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- remove application view ends ends-->
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Application Section Ends -->
+        </div>
+        <!-- Manage Profile Sections area ends -->
+        <div ng-class="{'custom-overlay': popup.editProfile || popup.editContact || popup.editApplication }" ></div>
+    </div>
+    <!-- manage profile content starts -->
+
+    <!-- Remove user modal starts -->
+    <script id="removeUserModalContent.html" type="text/ng-template">
+        <div class="custom-modal">
+            <div class="modal-header">
+                <h2 class="modal-title col-md-8 col-sm-8">Remove User</h2>
+                <div class="col-md-4 col-xs-4 pull-right close-btnArea" ng-click="cancel()">
+                    Close
+                    <span class="btn btn-blue btn-close">X</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="user-nameArea">John Abel</div>
+                <div class="popup-inner-content">
+                    <h5 class="popup-inner-heading">Are you sure you want to remove this user, John Abel, from the Portal?</h5>
+                    <p>You must select a reason to complete this action</p>
+                    <form class="form-horizontal col-md-offset-2 col-md-8 col-xs-offset-2 col-xs-8">
+                        <div class="form-group">
+                            <label class="small-text">Reason</label>
+                            <div class="">
+                                <select class="form-control custom-dropdown">
+                                    <option value="" disabled selected>Left Company</option>
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="small-text">Note</label>
+                            <label class="small-text text-right">Optional</label>
+                            <div class="">
+                                <textarea class="form-control big-textarea" ng-model= "feedback" max-length ="200"></textarea>
+                                <div class="character-count">{{200- feedback.length}} characters remaining</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <button class="btn btn-blue" type="button" data-ng-click="ok()">Yes, remove user</button>
+                </div>
+                <div class="close-circlebtnArea pull-right"  ng-click="cancel()">
+                    <span class="btn-circleclose"></span> Cancel
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- Remove user modal ends -->
+    <!-- Forgot Password modal starts -->
+    <script id="resetPasswordModalContent.html" type="text/ng-template">
+        <div class="custom-modal">
+            <div class="modal-header">
+                <h2 class="modal-title col-md-8 col-sm-8">Reset Password</h2>
+                <div class="col-md-4 col-xs-4 pull-right close-btnArea" ng-click="cancel()">
+                    Close
+                    <span class="btn btn-blue btn-close">X</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="user-nameArea">John Abel</div>
+                <div class="popup-inner-content">
+                    <h5 class="popup-inner-heading">Select below to reset this user's password.</h5>
+                    <p>An email will be sent to JAble@Acme.com with instructions for the user to create a new password. </p>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-right">
+                    <button class="btn btn-blue" type="button" data-ng-click="ok()">Reset user's password</button>
+                </div>
+                <div class="close-circlebtnArea pull-right"  ng-click="cancel()">
+                    <span class="btn-circleclose"></span> Cancel
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
+
+
+
+
+
+
+
+<!--<div id="wrap">-->
+
+
+<!--<div class="main-headingArea">-->
+    <!--<div class="col-md-8  col-xs-8 pull-left">-->
+        <!--<h1 class="main-heading">Manage Profile <span>for John Abel</span></h1>-->
+    <!--</div>-->
+    <!--<div class="col-md-4 col-xs-4 pull-right close-btnArea">-->
+        <!--Close<a ui-sref="manage-users" class="btn btn-blue btn-close">X</a> -->
+    <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Main Heading Area end &ndash;&gt;-->
+<!--&lt;!&ndash; manage profile content starts &ndash;&gt;-->
+<!--<div class="manageprofile-area">-->
+    <!--&lt;!&ndash; Sub Navigation Area starts &ndash;&gt;-->
+    <!--<nav class="navbar inner-sub-nav" role="navigation">-->
+        <!--&lt;!&ndash;<div class="col-md-6 col-xs-6 pull-left">&ndash;&gt;-->
+            <!--&lt;!&ndash;<ul class="nav navbar-nav navbar-left">&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="#/dashboard#profileContainer">Profile</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="#/dashboard#contactContainer">Contact</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="#/dashboard#applicationContainer">Applications</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</li>&ndash;&gt;-->
+            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<div class="col-md-6 col-xs-6 pull-right sub-nav-Btn" data-ng-controller="ModalDemoCtrl">-->
+            <!--<button type="button" data-ng-click="resetPasswordModal()" class="btn btn-white pull-right"><span class="icon-lock"></span>Reset Password</button>-->
+            <!--<button type="button" data-ng-click="removeUserModal()"  class="btn btn-white pull-right">Remove User</button>-->
+        <!--</div>-->
+    <!--</nav>-->
+    <!-- Sub Navigation Area end -->
+    <!--<div class="clearfix"></div>-->
+    <!--<div class="grey-bg"></div>-->
+    <!--<div class="clearfix"></div>-->
+    <!--&lt;!&ndash; Manage Profile Sections area starts &ndash;&gt;-->
+    <!--<div class="container-fluid manage-profile">-->
+        <!--&lt;!&ndash; Profile Section Starts &ndash;&gt;-->
+        <!--<div class="section" id="profileContainer">-->
+            <!--<div ng-if="!popup.editProfile">-->
+                <!--<div class="section-heading">-->
+                    <!--<div class="col-md-6 col-xs-6 pull-left section-heading-inner">-->
+                        <!--<h3>Profile</h3>-->
+                    <!--</div>-->
+                    <!--<div class="col-md-6 col-xs-6 pull-right section-heading-inner">-->
+                        <!--<button type="button"  class="btn btn-blue" ng-click="popup.editProfile = true">Edit Profile</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<form class="form-horizontal">-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-md-3 col-xs-3 text-right">Name</label>-->
+                        <!--<div class="col-md-9 col-xs-9 text-left">John Abel</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-md-3 col-xs-3 text-right">User ID</label>-->
+                        <!--<div class="col-md-9 col-xs-9 text-left">JAbel1234</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-md-3 col-xs-3 text-right">Role</label>-->
+                        <!--<div class="col-md-9 col-xs-9 text-left">User</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<label class="col-md-3 col-xs-3 text-right">Status</label>-->
+                        <!--<div class="col-md-9 col-xs-9 text-left">Pending</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+            <!--<div class="clearfix"></div>-->
+            <!--<div class="containerOfPopup" ng-if="popup.editProfile">-->
+                <!--<div class="custom-popup col-md-12">-->
+                    <!--<div class="popup-headingArea">-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-md-6 col-xs-6 pull-left">-->
+                                <!--<h4>Profile</h4>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="popup-content">-->
+                        <!--<div class="popup-content-heading">-->
+                            <!--<h5>Name</h5>-->
+                        <!--</div>-->
+                        <!--<form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left" name="profileForm">-->
+                            <!--<div class="form-group">-->
+                                <!--<span class="small-text">Optional</span>-->
+                                <!--<div class="custom-select">-->
+                                    <!--<select class="form-control custom-dropdown">-->
+                                        <!--<option value="" disabled selected>Title</option>-->
+                                        <!--<option>Option 1</option>-->
+                                        <!--<option>Option 2</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="small-text">First Name</label>-->
+                                <!--<div ng-class="{'has-error': profileForm.firstname.$dirty && profileForm.firstname.$error.required, 'has-success' : profileForm.firstname.$dirty && profileForm.firstname.$valid }">-->
+                                    <!--<input type="text"  ng-model = "user.firstName" name="firstname" required class="form-control"/>-->
+                                    <!--<div class="error-content" ng-show = "profileForm.firstname.$dirty && profileForm.firstname.$error.required">-->
+                                        <!--<span class="icon-alert"></span>-->
+                                        <!--<span class="help-inline">Please correct the error</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="sucess-content" ng-show = "profileForm.firstname.$dirty && profileForm.firstname.$valid">-->
+                                        <!--<span class="icon-success"></span>-->
+                                        <!--<span class="green-strip"></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<span class="small-text">Optional</span>-->
+                                <!--<div class="">-->
+                                    <!--<input type="text" class="form-control placeholder-field" Placeholder="Middle Name"/>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<label class="small-text">Last Name</label>-->
+                                <!--<div ng-class="{'has-error': profileForm.lastname.$dirty && profileForm.lastname.$error.required, 'has-success' : profileForm.lastname.$dirty && profileForm.lastname.$valid }">-->
+                                    <!--<input type="text"  ng-model = "user.lastName" name="lastname" required class="form-control"/>-->
+                                    <!--<div class="error-content" ng-show = "profileForm.lastname.$dirty && profileForm.lastname.$error.required">-->
+                                        <!--<span class="icon-alert"></span>-->
+                                        <!--<span class="help-inline">Please correct the error</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="sucess-content" ng-show = "profileForm.lastname.$dirty && profileForm.lastname.$valid">-->
+                                        <!--<span class="icon-success"></span>-->
+                                        <!--<span class="green-strip"></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                                <!--<span class="small-text">Optional</span>-->
+                                <!--<div class="custom-select">-->
+                                    <!--<select class="form-control custom-dropdown">-->
+                                        <!--<option value="" disabled selected>Surffix</option>-->
+                                        <!--<option>Option 1</option>-->
+                                        <!--<option>Option 2</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+                            <!--</form>-->
+                        <!--</div>-->
+                        <!--<div class="clearfix"></div>-->
+                        <!--<div class="popup-content">-->
+                            <!--<div class="popup-content-heading">-->
+                                <!--<h5>User</h5>-->
+                            <!--</div>-->
+                            <!--<form class="form-horizontal col-md-offset-3 col-md-6  col-xs-offset-3 col-xs-6 text-left">-->
+                                <!--<div class="form-group">-->
+                                     <!--<label class="small-text">User ID</label>-->
+                                    <!--&lt;!&ndash;<div class=""><input type="text" class="form-control"/> </div> &ndash;&gt;-->
+                                    <!--<div class="custom-user-id">-->
+                                        <!--<script type="text/ng-template" id="customPopupTemplate.html">-->
+                                            <!--<div class="custom-popup-wrapper"-->
+                                            <!--ng-style="{top: position().top+'px', left: position().left+'px'}"-->
+                                            <!--style="display: block;"-->
+                                            <!--ng-show="isOpen() && !moveInProgress"-->
+                                            <!--aria-hidden="{{!isOpen()}}">-->
+                                            <!--<p class="message">That User ID is taken <br/> <span>Still Available:</span></p>-->
+                                                <!--<ul class="dropdown-menu" role="listbox">-->
+                                                    <!--<li ng-repeat="match in matches track by $index" ng-class="{active: isActive($index) }"-->
+                                                    <!--ng-mouseenter="selectActive($index)" ng-click="selectMatch($index)" role="option" id="{{::match.id}}">-->
+                                                    <!--<div uib-typeahead-match index="$index" match="match" query="query" template-url="templateUrl"></div>-->
+                                                    <!--</li>-->
+                                                <!--</ul>-->
+                                            <!--</div>-->
+                                        <!--</script>-->
+                                        <!--<input type="text" popover-placement="right" uib-popover-template="dynamicPopover.templateUrl" popover-trigger="focus" ng-model="user.userId" uib-typeahead="state as state.name for state in statesWithFlags | filter:{name:$viewValue}" typeahead-popup-template-url="customPopupTemplate.html" class="form-control">-->
+                                        <!--<script type="text/ng-template" id="myPopoverTemplate.html">-->
+                                            <!--<div class="popover-heading">{{dynamicPopover.content}}</div>-->
+                                            <!--<div class="">-->
+                                                <!--<ul class="list-unstyled">-->
+                                                    <!--<li ng-class="{'selected' : user.userId && user.userId.length>=8&&user.userId.length<=20, 'deselected': !user.userId || user.userId.length < 8 || user.userId.length >20}">Must be 8-20 characters</li>-->
+                                                    <!--<li ng-class="{'selected' :  verifyLetterNumber(), 'deselected': !verifyLetterNumber()}">Must Include at least one letter and one number</li>-->
+                                                    <!--<li ng-class="{'selected' :  !verifySpaces(),'deselected': verifySpaces()}">Can't contain spaces</li>-->
+                                                    <!--<li ng-class="{'selected' :  !specialCharCheck(),'deselected': specialCharCheck()}">Can't contain special character</li>-->
+                                                    <!--<li ng-class="{'selected': verifyUnique(), 'deselected': !verifyUnique()}">Must be unique</li>-->
+                                                <!--</ul>-->
+                                            <!--</div>-->
+                                        <!--</script>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="small-text">Role</label>-->
+                                    <!--<div class="">-->
+                                        <!--<select class="form-control custom-dropdown">-->
+                                            <!--<option value="" disabled selected>Application User</option>-->
+                                            <!--<option>Option 1</option>-->
+                                            <!--<option>Option 2</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</form>-->
+                        <!--</div>-->
+                        <!--<div class="clearfix"></div>-->
+                        <!--<div class="popup-footer">-->
+                            <!--<div class="pull-right">-->
+                                <!--<button type="button" class="btn btn-blue" ng-click="popup.editProfile = false">Save</button>-->
+                            <!--</div>-->
+                            <!--<div class="close-circlebtnArea pull-right" ng-click="popup.editProfile = false">-->
+                                <!--<span class="btn-circleclose"></span> Cancel-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; Profile Section Ends &ndash;&gt;-->
+            <!--<div class="clearfix"></div>-->
+            <!--&lt;!&ndash; Contact Section Starts &ndash;&gt;-->
+            <!--<div class="section" id="contactContainer">-->
+                <!--<div ng-if="!popup.editContact">-->
+                    <!--<div class="section-heading">-->
+                        <!--<div class="col-md-6 col-xs-6 pull-left section-heading-inner">-->
+                            <!--<h3>Contact</h3>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-6 pull-right section-heading-inner">-->
+                            <!--<button type="button"  onclick="ScrollToContact()" class="btn btn-blue" ng-click="popup.editContact = true">Edit Contact</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<form class="form-horizontal">-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-md-3 col-xs-3 text-right">EmaiL Address</label>-->
+                            <!--<div class="col-md-9 col-xs-9 text-left">JAbel@Acme.com</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="col-md-3 col-xs-3 text-right">Phone Numbers(s)</label>-->
+                            <!--<div class="col-md-9 col-xs-9 text-left">-->
+                                <!--Primary Phone-->
+                                <!--<div>(Office) 999-999-9999</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+                <!--<div class="containerOfPopup" ng-if="popup.editContact">-->
+                    <!--<div class="custom-popup col-md-12">-->
+                        <!--<div class="popup-headingArea">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-md-6  col-xs-6 pull-left">-->
+                                    <!--<h4>Contact</h4>-->
+                                <!--</div>-->
+                             <!--&lt;!&ndash;    <div class="col-md-6 col-xs-6 pull-right">-->
+                                    <!--<div class="pull-right">-->
+                                        <!--<button type="button" class="btn btn-blue" ng-click="popup.editContact = false">Save</button>-->
+                                    <!--</div>-->
+                                    <!--<div class="close-circlebtnArea pull-right" ng-click="popup.editContact = false">-->
+                                        <!--<span class="btn btn-blue btn-circleclose">X</span> Cancel-->
+                                    <!--</div>-->
+                                <!--</div> &ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="popup-content">-->
+                            <!--<div class="popup-content-heading">-->
+                                <!--<h5>Email</h5>-->
+                            <!--</div>-->
+                            <!--<form class="form-horizontal col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6 text-left">-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="small-text">Email Address</label>-->
+                                    <!--<div class=""><input type="text" class="form-control"/> </div>-->
+                                <!--</div>-->
+                            <!--</form>-->
+                        <!--</div>-->
+                        <!--<div class="clearfix"></div>-->
+                        <!--<div class="popup-content">-->
+                            <!--<div class="popup-content-heading">-->
+                                <!--<h5>Phone Numbers</h5>-->
+                            <!--</div>-->
+                            <!--<form class="form-horizontal col-md-offset-3 col-md-6  col-xs-offset-3 col-xs-6 text-left">-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="small-text">Phone Type</label>-->
+                                    <!--<div class="">-->
+                                        <!--<select class="form-control custom-dropdown">-->
+                                            <!--<option value="" disabled selected>Office</option>-->
+                                            <!--<option>Option 1</option>-->
+                                            <!--<option>Option 2</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="small-text">Phone Country</label>-->
+                                    <!--<div class="">-->
+                                        <!--<select class="form-control custom-dropdown">-->
+                                            <!--<option value="" disabled selected>United State (+1)</option>-->
+                                            <!--<option>Option 1</option>-->
+                                            <!--<option>Option 2</option>-->
+                                        <!--</select>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label class="small-text">Phone Number</label>-->
+                                    <!--<div class=""><input type="text" class="form-control"/> </div>-->
+                                <!--</div>-->
+                                <!--<div class="form-group add-anthrNo">-->
+                                    <!--<a href="#">Add another phone number</a>-->
+                                <!--</div>-->
+                            <!--</form>-->
+
+                        <!--</div>-->
+                        <!--<div class="clearfix"></div>-->
+                        <!--<div class="popup-footer">-->
+                            <!--<div class="pull-right">-->
+                                <!--<button type="button" class="btn btn-blue" ng-click="popup.editContact = false">Save</button>-->
+                            <!--</div>-->
+                            <!--<div class="close-circlebtnArea pull-right" ng-click="popup.editContact = false">-->
+                                <!--<span class="btn-circleclose"></span> Cancel-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; Contact Section Ends &ndash;&gt;-->
+            <!--<div class="clearfix"></div>-->
+            <!--&lt;!&ndash; Application Section Starts &ndash;&gt;-->
+            <!--<div class="section" id="applicationContainer">-->
+                <!--<div ng-if="!popup.editApplication">-->
+                    <!--<div class="section-heading">-->
+                        <!--<div class="col-md-6 pull-left section-heading-inner">-->
+                            <!--<h3>Applications</h3>-->
+                        <!--</div>-->
+                        <!--<div class="col-md-6 col-xs-6 pull-right section-heading-inner">-->
+                            <!--<button type="button" onclick="ScrollToApplication()" class="btn btn-blue" ng-click="popup.editApplication = true">Edit Applications</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<form class="form-horizontal">-->
+                        <!--<div class="form-group" ng-repeat= "application in applications">-->
+                            <!--<div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">-->
+                                <!--<div class="inner-content" ng-class="{'selected': application.selected == true}">-->
+                                    <!--<span class="icon-complete"></span>-->
+                                    <!--<label class="">{{application.heading}}</label>-->
+                                    <!--<span>{{application.subHeading}}</span>-->
+                                <!--</div>-->
+                                <!--<button type="button" class="btn btn-white ng-hide">Remove</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash; <div class="form-group">-->
+                            <!--<div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">-->
+                                <!--<div class="inner-content selected">-->
+                                    <!--<span class="icon-complete"></span>-->
+                                    <!--<label class="">SunView Treasury Manager</label>-->
+                                    <!--<span>Added Mar 16, 2015 by John smith</span>-->
+                                <!--</div>-->
+                                <!--<button type="button" class="btn btn-white ng-hide">Remove</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 text-left application-content">-->
+                                <!--<div class="inner-content">-->
+                                    <!--<span class="icon-complete"></span>-->
+                                    <!--<label class="">SunView Treasury Manager</label>-->
+                                    <!--<span>Added Mar 16, 2015 by John smith</span>-->
+                                <!--</div>-->
+                                <!--<button type="button" class="btn btn-white">Remove</button>-->
+                            <!--</div>-->
+                        <!--</div> &ndash;&gt;-->
+                    <!--</form>-->
+                <!--</div>-->
+                <!--<div class="clearfix"></div>-->
+                <!--<div class="containerOfPopup" ng-if="popup.editApplication">-->
+                    <!--<div class="custom-popup col-md-12">-->
+                        <!--<div class="popup-headingArea">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-md-6  col-xs-6 pull-left">-->
+                                    <!--<h4>Application</h4>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; <div class="col-md-6 col-xs-6 pull-right">-->
+                                    <!--<div class="pull-right">-->
+                                        <!--<button type="button" class="btn btn-blue" ng-click="popup.editApplication = false">Save</button>-->
+                                    <!--</div>-->
+                                    <!--<div class="close-circlebtnArea pull-right" ng-click="popup.editApplication = false">-->
+                                        <!--<span class="btn btn-blue btn-circleclose">X</span> Cancel-->
+                                    <!--</div>-->
+                                <!--</div> &ndash;&gt;-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="popup-content row application-contr">-->
+                            <!--<div class="steps">-->
+                                <!--<a ng-click= "steps_toogle('step1')" ng-class="{'active':applicationsteps.step1}"><span>Select Applications</span></a>-->
+                                <!--<a ng-class="{'active':applicationsteps.step2}"><span>Processing</span></a>-->
+                                <!--<a ng-click= "steps_toogle('step3')" ng-class="{'active':applicationsteps.step3}"><span>Cofirmation</span></a>-->
+                            <!--</div>-->
+                            <!--<div ng-if="applicationsteps.step1">-->
+                                <!--&lt;!&ndash;select application view starts&ndash;&gt;-->
+                                <!--<div ng-if="isAllSelected">-->
+                                    <!--<div class="popup-headingArea">-->
+                                        <!--<h4>Select or deselect applications to add or remove application for this user.</h4>-->
+                                    <!--</div>-->
+                                    <!--<form class="form-horizontal">-->
+
+                                        <!--<div class="form-group" ng-repeat="application in applications">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content selected">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<input type="checkbox" ng-model="application.selected" id="checkbox-{{$index}}" class="custom-checkbox">-->
+                                                        <!--<label for="checkbox-{{$index}}"></label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="heading">{{application.heading}}</div>-->
+                                                    <!--<span class="sub-heading">{{application.subHeading}}</span>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--&lt;!&ndash; <div class="form-group">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content selected">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<input type="checkbox" id="checkbox-1" class="custom-checkbox">-->
+                                                        <!--<label for="checkbox-1"></label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="heading">Online ACH Control</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<input type="checkbox" id="checkbox-2" class="custom-checkbox">-->
+                                                        <!--<label for="checkbox-2"></label>-->
+                                                    <!--</div>-->
+                                                    <!--<span class="icon-reload"></span>-->
+                                                    <!--<div class="bundle-content">-->
+                                                        <!--<div class="heading">Online Cash Manager</div>-->
+                                                        <!--<span class="sub-heading">Added Mar 16, 2015 by John xsith</span>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="mesg-note">-->
+                                                        <!--<div uib-popover-template="templateUrl" popover-placement="bottom">Note</div>-->
+                                                        <!--<script type="text/ng-template" id="myPopoverTemplate.html">-->
+                                                          <!--<p>App removed based on request of their client rep</p>-->
+                                                          <!--<small>Added by John Smith on May 20,2015</small>-->
+                                                        <!--</script>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content selected">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<input type="checkbox" id="checkbox-3" class="custom-checkbox">-->
+                                                        <!--<label for="checkbox-3"></label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="heading">Online ACH Control</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content selected">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<input type="checkbox" id="checkbox-4" class="custom-checkbox">-->
+                                                        <!--<label for="checkbox-4"></label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="heading">Online ACH Control</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<input type="checkbox" id="checkbox-5" class="custom-checkbox">-->
+                                                        <!--<label for="checkbox-5"></label>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="heading">Online Cash Manager</div>-->
+                                                    <!--<span class="sub-heading">Added Mar 16, 2015 by John xsith</span>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div> &ndash;&gt;-->
+                                    <!--</form>-->
+                                    <!--<div class="clearfix"></div>-->
+                                    <!--<div class="popup-footer">-->
+                                        <!--<div class="pull-right">-->
+                                            <!--<button type="button" class="btn btn-blue" ng-click= "steps_toogle()">Next</button>-->
+                                        <!--</div>-->
+                                        <!--<div class="close-circlebtnArea pull-right" ng-click="popup.editApplication = false; cancelChanges()">-->
+                                            <!--<span class="btn-circleclose"></span> Cancel-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash; select application view ends ends&ndash;&gt;-->
+                                <!--&lt;!&ndash;remove application view starts starts&ndash;&gt;-->
+                                <!--<div ng-if="!isAllSelected">-->
+                                    <!--<div class="popup-headingArea">-->
+                                        <!--<h4>Are you sure you want to remove <span ng-repeat="application in applications" ng-if = "!application.selected"> {{application.heading}}, </span> for this user?</h4>-->
+                                        <!--<div>You may include an optional note to confirm this action</div>-->
+                                    <!--</div>-->
+                                    <!--<form class="form-horizontal">-->
+                                        <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8">-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label class="small-text">Note</label>-->
+                                                <!--<div class="">-->
+                                                    <!--<textarea class="form-control big-textarea" ng-model= "feedback" max-length ="155"></textarea>-->
+                                                    <!--<div class="character-count">{{155- feedback.length}} characters remaining</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</form>-->
+                                    <!--<div class="clearfix"></div>-->
+                                    <!--<div class="popup-footer">-->
+                                        <!--<div class="pull-right">-->
+                                            <!--<button type="button" class="btn btn-blue" ng-click= "steps_toogle('step3')">Yes, Remove Application</button>-->
+                                        <!--</div>-->
+                                        <!--<div class="close-circlebtnArea pull-right" ng-click="popup.editApplication = false; cancelChanges()">-->
+                                            <!--<span class="btn-circleclose"></span> Cancel-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash;when remove application view ends ends&ndash;&gt;-->
+                            <!--</div>-->
+                            <!--<div ng-if="applicationsteps.step2">-->
+                                <!--<div class="popup-headingArea">-->
+                                    <!--<h4>Processing applications</h4>-->
+                                <!--</div>-->
+                                <!--<form class="form-horizontal">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                            <!--<div class="inner-content selected">-->
+                                                <!--<div class="icon-select">-->
+                                                    <!--<div class="icon-confirmation"></div>-->
+                                                <!--</div>-->
+                                                <!--<span class="icon-reload"></span>-->
+                                                <!--<div class="bundle-content">-->
+                                                    <!--<div class="heading">Online Cash Manager</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                            <!--<div class="inner-content selected">-->
+                                                <!--<div class="icon-select">-->
+                                                    <!--<div class="icon-confirmation"></div>-->
+                                                <!--</div>-->
+                                                <!--<div class="bundle-content">-->
+                                                    <!--<div class="heading">Online Foreign Currency Exchange - added</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="overlay-processing"></div>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                                <!--<div class="clearfix"></div>-->
+                                <!--<div class="popup-footer loading-container">-->
+                                    <!--<div class="loading">-->
+                                        <!--&lt;!&ndash; <div class="loading-bar"></div>-->
+                                        <!--<div class="loading-bar"></div>-->
+                                        <!--<div class="loading-bar"></div>-->
+                                        <!--<div class="loading-bar"></div> &ndash;&gt;-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div ng-if="applicationsteps.step3">-->
+                                <!--&lt;!&ndash; select application view ends starts&ndash;&gt;-->
+                                <!--<div ng-if="isAllSelected">-->
+                                    <!--<div class="popup-headingArea">-->
+                                        <!--<h4>2 applications processed successfully</h4>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 ">-->
+                                        <!--<div class="confirmation-mesg">-->
+                                            <!--<h5>User entitlements require set up or review for added application(s).</h5>-->
+
+                                            <!--<p>If you have application administration access, select the open application link to-->
+                                            <!--directly access abd set up or review user entitlements for the application.</p>-->
+
+                                        <!--<p>Otherwise, select to notify the application administrator by email that this new user-->
+                                           <!--requires entitlement setup or review.</p>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<form class="form-horizontal">-->
+                                    <!--<div class="form-group">-->
+                                        <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                            <!--<div class="inner-content selected">-->
+                                                <!--<div class="icon-select">-->
+                                                    <!--<div class="icon-confirmation"></div>-->
+                                                <!--</div>-->
+                                                <!--<span class="icon-reload"></span>-->
+                                                <!--<div class="bundle-content">-->
+                                                    <!--<div class="heading">Online Cash Manager</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="link">-->
+                                                    <!--<a href="#">Open application</a>-->
+                                                    <!--|-->
+                                                    <!--<a href="#">Email application administrator</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-group">-->
+                                        <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                            <!--<div class="inner-content selected">-->
+                                                <!--<div class="icon-select">-->
+                                                    <!--<div class="icon-confirmation"></div>-->
+                                                <!--</div>-->
+                                                <!--<div class="bundle-content">-->
+                                                    <!--<div class="heading">Online Cash Manager</div>-->
+                                                <!--</div>-->
+                                                <!--<div class="link">-->
+                                                    <!--<a href="#">Open application</a>-->
+                                                    <!--|-->
+                                                    <!--<a href="#">Email application administrator</a>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</form>-->
+                                <!--<div class="clearfix"></div>-->
+                                <!--<div class="popup-footer">-->
+                                    <!--<div class="pull-right">-->
+                                        <!--<button type="button" class="btn btn-blue" ng-click="popup.editApplication = false; setupAutoHide()">OK</button>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash; select application view ends ends&ndash;&gt;-->
+                            <!--&lt;!&ndash; remove application view ends starts&ndash;&gt;-->
+                            <!--<div ng-if="!isAllSelected">-->
+                                <!--<div class="popup-headingArea">-->
+                                    <!--<h4>1 of 2 Applications processed successfully</h4>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 ">-->
+                                    <!--<div class="confirmation-mesg">-->
+                                        <!--<h5>User entitlements require set up or review for added application(s).</h5>-->
+
+                                            <!--<p>If you have application administration access, select the open application link to-->
+                                            <!--directly access abd set up or review user entitlements for the application.</p>-->
+
+                                            <!--<p>Otherwise, select to notify the application administrator by email that this new user-->
+                                            <!--requires entitlement setup or review.</p>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<form class="form-horizontal">-->
+                                        <!--<div class="form-group">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content selected">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<div class="icon-confirmation"></div>-->
+                                                    <!--</div>-->
+                                                    <!--<span class="icon-reload"></span>-->
+                                                    <!--<div class="bundle-content">-->
+                                                        <!--<div class="heading">Online Cash Manager</div>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="link">-->
+                                                        <!--<a href="#">Open application</a>-->
+                                                        <!--|-->
+                                                        <!--<a href="#">Email application administrator</a>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--<div class="form-group">-->
+                                            <!--<div class="col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 application-content">-->
+                                                <!--<div class="inner-content">-->
+                                                    <!--<div class="icon-select">-->
+                                                        <!--<div class="icon-fail"></div>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="bundle-content">-->
+                                                        <!--<div class="heading">SunView Treasury Manager - removal failed</div>-->
+                                                        <!--<div>The app is not reponding.Please try again later. If you continue to have issues please contact custome service.</div>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <!--<button type="button" class="btn btn-white">Retry</button>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</form>-->
+                                    <!--<div class="clearfix"></div>-->
+                                    <!--<div class="popup-footer">-->
+                                        <!--<div class="pull-right">-->
+                                            <!--<button type="button" class="btn btn-blue" ng-click="popup.editApplication = false; setupAutoHide()">OK</button>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--&lt;!&ndash; remove application view ends ends&ndash;&gt;-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="alert alert-success custom-alert" role="alert" ng-show="showme">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-md-8 col-sm-8 left-side">-->
+                        <!--<i class="icon-success-mesg"></i>-->
+                        <!--Application(s) processed successfully.-->
+                    <!--</div>-->
+                    <!--<div class="col-md-4 col-sm-4 pull-right right-side">-->
+                        <!--<button type="button" class="btn btn-green" data-dismiss="alert" ng-click = "showme = false" >OK</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; Application Section Ends &ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash; Manage Profile Sections area ends &ndash;&gt;-->
+    <!--<div ng-class="{'custom-overlay': popup.editProfile || popup.editContact || popup.editApplication }" ></div>-->
+<!--</div>-->
+<!--&lt;!&ndash; manage profile content starts &ndash;&gt;-->
+
+    <!--&lt;!&ndash; Remove user modal starts &ndash;&gt;-->
+    <!--<script id="removeUserModalContent.html" type="text/ng-template">-->
+        <!--<div class="custom-modal">-->
+            <!--<div class="modal-header">-->
+                <!--<h2 class="modal-title col-md-8 col-sm-8">Remove User</h2>-->
+                <!--<div class="col-md-4 col-xs-4 pull-right close-btnArea" ng-click="cancel()">-->
+                    <!--Close-->
+                    <!--<span class="btn btn-blue btn-close">X</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<div class="user-nameArea">John Abel</div>-->
+                <!--<div class="popup-inner-content">-->
+                    <!--<h5 class="popup-inner-heading">Are you sure you want to remove this user, John Abel, from the Portal?</h5>-->
+                    <!--<p>You must select a reason to complete this action</p>-->
+                    <!--<form class="form-horizontal col-md-offset-2 col-md-8 col-xs-offset-2 col-xs-8">-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="small-text">Reason</label>-->
+                            <!--<div class="">-->
+                                <!--<select class="form-control custom-dropdown">-->
+                                    <!--<option value="" disabled selected>Left Company</option>-->
+                                    <!--<option>Option 1</option>-->
+                                    <!--<option>Option 2</option>-->
+                                <!--</select>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--<label class="small-text">Note</label>-->
+                            <!--<label class="small-text text-right">Optional</label>-->
+                            <!--<div class="">-->
+                                <!--<textarea class="form-control big-textarea" ng-model= "feedback" max-length ="200"></textarea>-->
+                                <!--<div class="character-count">{{200- feedback.length}} characters remaining</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</form>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<div class="pull-right">-->
+                    <!--<button class="btn btn-blue" type="button" data-ng-click="ok()">Yes, remove user</button>-->
+                <!--</div>-->
+                <!--<div class="close-circlebtnArea pull-right"  ng-click="cancel()">-->
+                    <!--<span class="btn-circleclose"></span> Cancel-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</script>-->
+    <!--&lt;!&ndash; Remove user modal ends &ndash;&gt;-->
+    <!--&lt;!&ndash; Forgot Password modal starts &ndash;&gt;-->
+    <!--<script id="resetPasswordModalContent.html" type="text/ng-template">-->
+        <!--<div class="custom-modal">-->
+            <!--<div class="modal-header">-->
+                <!--<h2 class="modal-title col-md-8 col-sm-8">Reset Password</h2>-->
+                <!--<div class="col-md-4 col-xs-4 pull-right close-btnArea" ng-click="cancel()">-->
+                    <!--Close-->
+                    <!--<span class="btn btn-blue btn-close">X</span>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--<div class="user-nameArea">John Abel</div>-->
+                <!--<div class="popup-inner-content">-->
+                    <!--<h5 class="popup-inner-heading">Select below to reset this user's password.</h5>-->
+                    <!--<p>An email will be sent to JAble@Acme.com with instructions for the user to create a new password. </p>-->
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<div class="pull-right">-->
+                    <!--<button class="btn btn-blue" type="button" data-ng-click="ok()">Reset user's password</button>-->
+                <!--</div>-->
+                <!--<div class="close-circlebtnArea pull-right"  ng-click="cancel()">-->
+                    <!--<span class="btn-circleclose"></span> Cancel-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</script>-->
+    <!--&lt;!&ndash; Remove user modal ends &ndash;&gt;-->
+    <!--</apex:form> -->
+    
+        </div>
+    </div>
+
+    <div class="alert alert-success custom-alert" role="alert" ng-show="showme">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 left-side">
+                <i class="icon-success-mesg"></i>
+                Application(s) processed successfully.
+            </div>
+            <div class="col-md-4 col-sm-4 pull-right right-side">
+                <button type="button" class="btn btn-green" data-dismiss="alert" ng-click = "showme = false" >OK</button>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+   
+    </apex:form>
+</apex:page>

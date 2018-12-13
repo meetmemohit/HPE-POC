@@ -1,0 +1,10 @@
+<apex:page standardController="Contact" extensions="ContactAccExtController" showHeader="false">
+<apex:form >
+ <apex:pageBlock >
+  <apex:pageBlockSection >
+    <apex:commandButton action="{!ProcessRecord}" value="Process"/>
+      <apex:inputField value="{!con.AccountId}"/>
+  </apex:pageBlockSection>
+ </apex:pageBlock>
+</apex:form>
+</apex:page>

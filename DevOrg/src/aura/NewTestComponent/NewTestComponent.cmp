@@ -1,0 +1,15 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="acc" type="Account" 
+                    default="{'sobjectType' : 'Account',
+                              'Name': 'Mohit Lighting',
+                              'SLA__c' : null ,
+                              'SLASerialNumber__c': ''}"/>
+    <aura:attribute name="name" type="String" default=""/>
+    <aura:attribute name="sla" type="String" default=""/>
+    <aura:attribute name="serial" type="String" default=""/>
+    <ui:inputText label="Account Name:" aura:id="acname" value="{!v.name}" placeholder="first, last"/>
+    <ui:inputText label="SLA:" aura:id="slaname" value="{!v.sla}" placeholder="Platinum"/>
+    <ui:inputText label="SLA SerialNumber:" aura:id="serial" value="{!v.serial}" placeholder="12345"/>
+    <ui:button aura:id="submit" label="Creat Account" press="{!c.submit}"/>
+   
+</aura:component>
