@@ -9,6 +9,7 @@ global class AccountBatch1 implements Database.Batchable<sObject>{
            a.ShippingStreet = 'updated from batch1';
       }
     }
+   //test comment
    global void finish(Database.BatchableContext BC){
        Id batchId = Database.executeBatch(new AccountBatch2(5));
        
