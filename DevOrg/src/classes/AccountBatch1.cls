@@ -7,9 +7,13 @@ global class AccountBatch1 implements Database.Batchable<sObject>{
        List<Account> acclist = new List<Account>();
        for(Account a: scope){
            a.ShippingStreet = 'updated from batch1';
+           a.name = 'Ashish';
+           
       }
     }
-   //test comment
+    //iLCvKRTP6L2AUN4j8QYyTbePAAAAAA
+    ///
+    //DSDSDDSDSDSDSDDSsdad
    global void finish(Database.BatchableContext BC){
        Id batchId = Database.executeBatch(new AccountBatch2(5));
        
